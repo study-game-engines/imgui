@@ -8,10 +8,6 @@ import unsigned.Uint
 import unsigned.Ulong
 import unsigned.Ushort
 
-// Data type helpers
-
-/* ~DataTypeApplyOp */
-
 infix fun Byte.addOp(arg: Byte): Byte = addClampOverflow(this.i, arg.i, Byte.MIN_VALUE.i, Byte.MAX_VALUE.i).b
 infix fun Byte.subOp(arg: Byte): Byte = subClampOverflow(this.i, arg.i, Byte.MIN_VALUE.i, Byte.MAX_VALUE.i).b
 infix fun Ubyte.addOp(arg: Ubyte): Ubyte = addClampOverflow(this.i, arg.i, Ubyte.MIN_VALUE, Ubyte.MAX_VALUE).ub

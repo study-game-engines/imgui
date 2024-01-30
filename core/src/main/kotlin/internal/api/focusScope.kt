@@ -27,4 +27,5 @@ interface focusScope {
     /** Focus scope we are outputting into, set by PushFocusScope() */
     val currentFocusScope: ID
         get() = g.currentFocusScopeId
+
 }

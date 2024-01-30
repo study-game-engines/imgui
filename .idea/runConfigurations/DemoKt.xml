@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Opengl3Kt" type="JetRunConfigurationType" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="examples.Opengl3Kt" />
+  <configuration default="false" name="DemoKt" type="JetRunConfigurationType" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="examples.DemoKt" />
     <module name="imgui.gl.test" />
     <shortenClasspath name="NONE" />
     <option name="VM_PARAMETERS" value="-ea" />

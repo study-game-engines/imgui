@@ -16,10 +16,7 @@ import imgui.classes.KeyData
 import imgui.internal.classes.*
 import imgui.internal.sections.*
 
-/** Inputs
- *  FIXME: Eventually we should aim to move e.g. IsActiveIdUsingKey() into IsKeyXXX functions. */
 internal interface inputs {
-
 
     /** ~IsNamedKey */
     val Key.isNamed: Boolean
@@ -406,4 +403,5 @@ internal interface inputs {
             else -> 0
         }
     }
+
 }

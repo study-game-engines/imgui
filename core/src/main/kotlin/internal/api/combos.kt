@@ -16,8 +16,6 @@ import imgui.internal.sections.LayoutType
 import imgui.internal.sections.NextWindowDataFlag
 import imgui.internal.sections.PopupPositionPolicy
 
-
-// Combos
 internal interface combos {
 
     fun beginComboPopup(popupId: ID, bb: Rect, flags_: ComboFlags): Boolean {

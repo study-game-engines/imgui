@@ -16,7 +16,6 @@ import imgui.statics.navApplyItemToResult
 import imgui.statics.navRestoreHighlightAfterMove
 import imgui.statics.navUpdateAnyRequestFlag
 
-// Gamepad/Keyboard Navigation
 internal interface gamepadKeyboardNavigation {
 
     fun navInitWindow(window: Window, forceReinit: Boolean) {
@@ -261,4 +260,5 @@ internal interface gamepadKeyboardNavigation {
         navClearPreferredPosForAxis(Axis.X)
         navClearPreferredPosForAxis(Axis.Y)
     }
+
 }

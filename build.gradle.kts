@@ -20,5 +20,4 @@ tasks {
     withType<KotlinCompilationTask<*>>().configureEach {
         compilerOptions.freeCompilerArgs.addAll("-opt-in=kotlin.RequiresOptIn", "-Xallow-kotlin-package")
     }
-    test { useJUnitPlatform() }
 }

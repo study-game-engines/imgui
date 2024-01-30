@@ -1,6 +1,5 @@
 package examples
 
-
 import glm_.vec4.Vec4
 import gln.checkError
 import gln.glViewport

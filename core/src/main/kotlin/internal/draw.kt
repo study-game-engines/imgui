@@ -196,6 +196,7 @@ class DrawListSplitter {
             }
     }
 
+    @OptIn(ExperimentalStdlibApi::class)
     infix fun merge(drawList: DrawList) {
 
         // Note that we never use or rely on _Channels.Size because it is merely a buffer that we never shrink back to 0 to keep all sub-buffers ready for use.

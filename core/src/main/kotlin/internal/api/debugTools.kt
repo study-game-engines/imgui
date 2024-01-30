@@ -61,10 +61,6 @@ import imgui.api.g
 import imgui.classes.DrawList
 import imgui.classes.listClipper
 import imgui.demo.showExampleApp.StyleEditor
-import imgui.child
-import imgui.indent
-import imgui.treeNode
-import imgui.withID
 import imgui.font.Font
 import imgui.font.FontAtlas
 import imgui.font.FontGlyph
@@ -81,7 +77,6 @@ import uno.kotlin.plusAssign
 
 typealias ErrorLogCallback = (userData: Any?, fmt: String, args: Array<Any>) -> Unit
 
-/** Debug Tools */
 internal interface debugTools {
 
     /** Experimental recovery from incorrect usage of BeginXXX/EndXXX/PushXXX/PopXXX calls.
@@ -795,4 +790,5 @@ internal interface debugTools {
         }
         drawList.addRect(bb.min, bb.max, getColorU32(Col.Border, alphaMul))
     }
+
 }

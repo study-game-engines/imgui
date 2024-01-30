@@ -12,7 +12,6 @@ import imgui.ImGui.mainViewport
 import imgui.ImGui.mouseCursor
 import imgui.Key
 import imgui.MouseButton
-import imgui.windowsIme.imeListener
 import org.lwjgl.glfw.*
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.system.MemoryUtil.NULL
@@ -102,7 +101,6 @@ class ImplGlfw @JvmOverloads constructor(val window: GlfwWindow, installCallback
         // [JVM] Chain GLFW callbacks: our callbacks will be installed in parallel with any other already existing
         if (installCallbacks) {
             // TODO monitor callback
-            imeListener.install(window)
             installCallbacks(window)
         }
 

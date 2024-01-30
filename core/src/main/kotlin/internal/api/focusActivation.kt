@@ -44,4 +44,5 @@ interface focusActivation {
         g.navNextActivateId = id
         g.navNextActivateFlags = none
     }
+
 }

@@ -5,12 +5,6 @@ import imgui.has
 import imgui.internal.classes.DebugLogFlag
 import imgui.internal.sections.IMGUI_DEBUG_PRINTF
 
-// Debug Log
-
-//-----------------------------------------------------------------------------
-// [SECTION] DEBUG LOG WINDOW
-//-----------------------------------------------------------------------------
-
 internal interface debugLog {
 
     fun debugLog(fmt: String, vararg args: Any) {
@@ -19,6 +13,7 @@ internal interface debugLog {
         g.debugLogBuf.append(fmt.format(*args))
         if (g.debugLogFlags has DebugLogFlag.OutputToTTY)
             IMGUI_DEBUG_PRINTF(g.debugLogBuf.drop(oldSize).toString())
-//        g.DebugLogIndex.append(g.DebugLogBuf.c_str(), old_size, g.DebugLogBuf.size());
+        // g.DebugLogIndex.append(g.DebugLogBuf.c_str(), old_size, g.DebugLogBuf.size());
     }
+
 }

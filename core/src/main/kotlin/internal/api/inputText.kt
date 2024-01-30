@@ -74,7 +74,6 @@ import kotlin.reflect.KMutableProperty0
 import imgui.InputTextFlag as Itf
 import imgui.WindowFlag as Wf
 
-/** InputText */
 internal interface inputText {
 
     // [JVM] since this is a very particular case, that's why we don't overload
@@ -1092,4 +1091,5 @@ internal interface inputText {
     fun tempInputIsActive(id: ID): Boolean = g.activeId == id && g.tempInputId == id
 
     fun getInputTextState(id: ID): InputTextState? = g.inputTextState.takeIf { id != 0 && it.id == id } // Get input text state if active
+
 }

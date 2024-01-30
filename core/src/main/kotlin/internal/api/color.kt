@@ -35,7 +35,6 @@ import imgui.internal.F32_TO_INT8_SAT
 import imgui.internal.sections.TooltipFlag
 import imgui.ColorEditFlag as Cef
 
-/** Color */
 internal interface color {
 
     fun colorTooltip(text: String, col: Vec3, flags: ColorEditFlags) = colorTooltip(text, col.x, col.y, col.z, 1f, flags)
@@ -153,4 +152,5 @@ internal interface color {
         }
         endPopup()
     }
+
 }

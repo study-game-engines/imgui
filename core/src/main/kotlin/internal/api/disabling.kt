@@ -40,4 +40,5 @@ internal interface disabling {
         if (wasDisabled && g.currentItemFlags hasnt ItemFlag.Disabled)
             g.style.alpha = g.disabledAlphaBackup //PopStyleVar();
     }
+
 }

@@ -6,7 +6,6 @@ import imgui.internal.classes.Window
 import imgui.reserve
 import kool.cap
 
-/** Garbage collection */
 interface garbageCollection {
 
     fun gcCompactTransientMiscBuffers() {
@@ -45,4 +44,5 @@ interface garbageCollection {
         memoryDrawListIdxCapacity = 0
         memoryDrawListVtxCapacity = 0
     }
+
 }

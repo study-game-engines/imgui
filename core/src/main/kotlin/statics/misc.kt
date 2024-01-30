@@ -302,6 +302,7 @@ fun Window.renderOuterBorders() {
 /** ~RenderWindowDecorations
  *  Draw background and borders
  *  Draw and handle scrollbars */
+@OptIn(ExperimentalStdlibApi::class)
 fun Window.renderDecorations(titleBarRect: Rect, titleBarIsHighlight: Boolean, handleBordersAndResizeGrips: Boolean,
                              resizeGripCount: Int, resizeGripCol: IntArray, resizeGripDrawSize: Float) {
 

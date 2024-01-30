@@ -56,4 +56,5 @@ internal interface dragAndDrop {
     /** FIXME-DRAGDROP: Settle on a proper default visuals for drop target. */
     fun renderDragDropTargetRect(bb: Rect) =
             ImGui.windowDrawList.addRect(bb.min - Vec2(3.5f), bb.max + Vec2(3.5f), Col.DragDropTarget.u32, 0f, thickness = 2f)
+
 }
