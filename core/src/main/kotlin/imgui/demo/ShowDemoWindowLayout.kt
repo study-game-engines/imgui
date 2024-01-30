@@ -93,16 +93,16 @@ import imgui.api.drag
 import imgui.api.slider
 import imgui.classes.Color
 import imgui.demo.showExampleApp.MenuFile
-import imgui.dsl.child
-import imgui.dsl.group
-import imgui.dsl.indent
-import imgui.dsl.menuBar
-import imgui.dsl.treeNode
-import imgui.dsl.withClipRect
-import imgui.dsl.withID
-import imgui.dsl.withItemWidth
-import imgui.dsl.withStyleColor
-import imgui.dsl.withStyleVar
+import imgui.child
+import imgui.group
+import imgui.indent
+import imgui.menuBar
+import imgui.treeNode
+import imgui.withClipRect
+import imgui.withID
+import imgui.withItemWidth
+import imgui.withStyleColor
+import imgui.withStyleVar
 import kotlin.math.sin
 import imgui.WindowFlag as Wf
 

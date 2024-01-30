@@ -11,7 +11,7 @@ import imgui.ImGui.style
 import imgui.ImGui.text
 import imgui.ImGui.textColored
 import imgui.api.g
-import imgui.dsl.tooltip
+import imgui.tooltip
 import imgui.statics.mergedModsFromKeys
 
 

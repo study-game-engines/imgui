@@ -34,14 +34,14 @@ import imgui.ImGui.textWrapped
 import imgui.api.demoDebugInformations.Companion.helpMarker
 import imgui.api.drag
 import imgui.demo.showExampleApp.MenuFile
-import imgui.dsl.button
-import imgui.dsl.menu
-import imgui.dsl.menuBar
-import imgui.dsl.popup
-import imgui.dsl.popupContextItem
-import imgui.dsl.popupModal
-import imgui.dsl.treeNode
-import imgui.dsl.withStyleVar
+import imgui.button
+import imgui.menu
+import imgui.menuBar
+import imgui.popup
+import imgui.popupContextItem
+import imgui.popupModal
+import imgui.treeNode
+import imgui.withStyleVar
 import imgui.WindowFlag as Wf
 
 object ShowDemoWindowPopups {

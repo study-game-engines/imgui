@@ -13,9 +13,9 @@ import imgui.ImGui.setNextWindowBgAlpha
 import imgui.ImGui.setNextWindowPos
 import imgui.ImGui.text
 import imgui.div
-import imgui.dsl.menuItem
-import imgui.dsl.popupContextWindow
-import imgui.dsl.window
+import imgui.menuItem
+import imgui.popupContextWindow
+import imgui.window
 import imgui.or
 import kotlin.reflect.KMutableProperty0
 import imgui.WindowFlag as Wf

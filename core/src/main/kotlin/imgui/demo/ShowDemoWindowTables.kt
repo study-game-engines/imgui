@@ -71,16 +71,16 @@ import imgui.api.slider
 import imgui.classes.DrawList
 import imgui.classes.TableSortSpecs
 import imgui.classes.listClipper
-import imgui.dsl.popup
-import imgui.dsl.popupContextItem
-import imgui.dsl.table
-import imgui.dsl.tooltip
-import imgui.dsl.treeNode
-import imgui.dsl.treeNodeEx
-import imgui.dsl.useCombo
-import imgui.dsl.withID
-import imgui.dsl.withItemWidth
-import imgui.dsl.withTextWrapPos
+import imgui.popup
+import imgui.popupContextItem
+import imgui.table
+import imgui.tooltip
+import imgui.treeNode
+import imgui.treeNodeEx
+import imgui.useCombo
+import imgui.withID
+import imgui.withItemWidth
+import imgui.withTextWrapPos
 import kotlin.reflect.KMutableProperty0
 import imgui.TableColumnFlag as Tcf
 import imgui.TableFlag as Tf

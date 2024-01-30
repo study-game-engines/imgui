@@ -2,8 +2,8 @@ package imgui.demo.showExampleApp
 
 import imgui.ImGui.menuItem
 import imgui.ImGui.separator
-import imgui.dsl.mainMenuBar
-import imgui.dsl.menu
+import imgui.mainMenuBar
+import imgui.menu
 
 /** Demonstrate creating a "main" fullscreen menu bar and populating it.
  *  Note the difference between BeginMainMenuBar() and BeginMenuBar():

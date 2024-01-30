@@ -35,7 +35,7 @@ import imgui.ImGui.setTabItemClosed
 import imgui.ImGui.text
 import imgui.ImGui.textLineHeightWithSpacing
 import imgui.ImGui.textWrapped
-import imgui.dsl.childFrame
+import imgui.childFrame
 import kotlin.reflect.KMutableProperty0
 
 //-----------------------------------------------------------------------------

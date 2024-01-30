@@ -38,7 +38,7 @@ import imgui.ImGui.textUnformatted
 import imgui.ImGui.textWrapped
 import imgui.classes.InputTextCallbackData
 import imgui.classes.TextFilter
-import imgui.dsl.popupContextItem
+import imgui.popupContextItem
 import uno.kotlin.getValue
 import uno.kotlin.setValue
 import kotlin.reflect.KMutableProperty0

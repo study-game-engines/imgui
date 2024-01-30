@@ -22,7 +22,7 @@ import imgui.ImGui.treeNodeEx
 import imgui.ImGui.treePop
 import imgui.api.demoDebugInformations.Companion.helpMarker
 import imgui.api.drag
-import imgui.dsl.table
+import imgui.table
 import kotlin.reflect.KMutableProperty0
 import imgui.TreeNodeFlag as Tnf
 

@@ -61,10 +61,10 @@ import imgui.api.g
 import imgui.classes.DrawList
 import imgui.classes.listClipper
 import imgui.demo.showExampleApp.StyleEditor
-import imgui.dsl.child
-import imgui.dsl.indent
-import imgui.dsl.treeNode
-import imgui.dsl.withID
+import imgui.child
+import imgui.indent
+import imgui.treeNode
+import imgui.withID
 import imgui.font.Font
 import imgui.font.FontAtlas
 import imgui.font.FontGlyph

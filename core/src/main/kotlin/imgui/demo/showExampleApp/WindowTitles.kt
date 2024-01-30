@@ -8,7 +8,7 @@ import imgui.ImGui.mainViewport
 import imgui.ImGui.setNextWindowPos
 import imgui.ImGui.text
 import imgui.ImGui.time
-import imgui.dsl.window
+import imgui.window
 
 
 //-----------------------------------------------------------------------------

@@ -37,7 +37,8 @@ import imgui.ImGui.windowSize
 import imgui.api.demoDebugInformations.Companion.helpMarker
 import imgui.api.drag
 import imgui.api.slider
-import imgui.dsl.menuItem
+import imgui.menuItem
+import imgui.popup
 import imgui.internal.sections.ButtonFlag
 import imgui.internal.sections.DrawFlag
 import kotlin.reflect.KMutableProperty0
@@ -228,7 +229,7 @@ object CustomRendering {
                 val dragDelta = getMouseDragDelta(MouseButton.Right)
                 if (optEnableContextMenu && dragDelta.x == 0f && dragDelta.y == 0f) // TODO glm
                     openPopupOnItemClick("context", PopupFlag.MouseButtonRight)
-                dsl.popup("context") {
+                popup("context") {
                     if (addingLine) {
                         points.pop()
                         points.pop()

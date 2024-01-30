@@ -10,7 +10,7 @@ import imgui.ImGui.text
 import imgui.ImGui.textUnformatted
 import imgui.TableFlag
 import imgui.div
-import imgui.dsl.table
+import imgui.table
 import imgui.internal.textCharFromUtf8
 
 // Debug Utilities

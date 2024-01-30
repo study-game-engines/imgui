@@ -33,8 +33,8 @@ import imgui.ImGui.text
 import imgui.ImGui.textWrapped
 import imgui.api.demoDebugInformations.Companion.helpMarker
 import imgui.api.slider
-import imgui.dsl.collapsingHeader
-import imgui.dsl.treeNode
+import imgui.collapsingHeader
+import imgui.treeNode
 
 object ShowDemoWindowInputs {
 

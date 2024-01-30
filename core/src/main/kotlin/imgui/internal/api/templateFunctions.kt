@@ -22,8 +22,8 @@ import imgui.ImGui.sameLine
 import imgui.ImGui.style
 import imgui.ImGui.textEx
 import imgui.api.g
-import imgui.dsl.group
-import imgui.dsl.withID
+import imgui.group
+import imgui.withID
 import imgui.internal.*
 import imgui.internal.classes.Rect
 import imgui.internal.sections.Axis

@@ -98,10 +98,10 @@ import imgui.classes.Style
 import imgui.classes.listClipper
 import imgui.demo.DemoWindow
 import imgui.demo.showExampleApp.StyleEditor
-import imgui.dsl.indent
-import imgui.dsl.listBox
-import imgui.dsl.treeNode
-import imgui.dsl.withID
+import imgui.indent
+import imgui.listBox
+import imgui.treeNode
+import imgui.withID
 import imgui.internal.DrawIdx
 import imgui.internal.DrawVert
 import imgui.internal.api.debugTools.Companion.metricsHelpMarker

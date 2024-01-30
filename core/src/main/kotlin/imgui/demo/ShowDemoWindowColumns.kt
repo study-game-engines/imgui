@@ -29,10 +29,10 @@ import imgui.WindowFlag
 import imgui.api.demoDebugInformations.Companion.helpMarker
 import imgui.api.drag
 import imgui.classes.listClipper
-import imgui.dsl.child
-import imgui.dsl.collapsingHeader
-import imgui.dsl.selectable
-import imgui.dsl.treeNode
+import imgui.child
+import imgui.collapsingHeader
+import imgui.selectable
+import imgui.treeNode
 
 // Demonstrate old/legacy Columns API!
 // [2020: Columns are under-featured and not maintained. Prefer using the more flexible and powerful BeginTable() API!]

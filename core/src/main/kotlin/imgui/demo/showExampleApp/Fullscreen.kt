@@ -8,8 +8,8 @@ import imgui.ImGui.sameLine
 import imgui.ImGui.setNextWindowPos
 import imgui.ImGui.setNextWindowSize
 import imgui.api.demoDebugInformations.Companion.helpMarker
-import imgui.dsl.indent
-import imgui.dsl.window
+import imgui.indent
+import imgui.window
 import imgui.or
 import kotlin.reflect.KMutableProperty0
 import imgui.WindowFlag as Wf

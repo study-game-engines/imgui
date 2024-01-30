@@ -40,11 +40,11 @@ import imgui.api.demoDebugInformations.Companion.helpMarker
 import imgui.api.demoDebugInformations.ShowAboutWindow
 import imgui.classes.TextFilter
 import imgui.demo.showExampleApp.*
-import imgui.dsl.collapsingHeader
-import imgui.dsl.menu
-import imgui.dsl.menuBar
-import imgui.dsl.treeNode
-import imgui.dsl.window
+import imgui.collapsingHeader
+import imgui.menu
+import imgui.menuBar
+import imgui.treeNode
+import imgui.window
 import kotlin.reflect.KMutableProperty0
 import imgui.WindowFlag as Wf
 

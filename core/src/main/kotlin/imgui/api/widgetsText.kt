@@ -21,12 +21,11 @@ import imgui.ImGui.renderTextClipped
 import imgui.ImGui.separatorTextEx
 import imgui.ImGui.style
 import imgui.ImGui.textEx
-import imgui.dsl
 import imgui.get
 import imgui.internal.classes.Rect
 import imgui.internal.formatStringToTempBuffer
 import imgui.internal.sections.TextFlag
-
+import imgui.withStyleColor
 
 /** Widgets: Text */
 interface widgetsText {
@@ -62,7 +61,7 @@ interface widgetsText {
      *      text(fmt, ...)
      *      popStyleColor() */
     fun textDisabled(fmt: String, vararg args: Any) =
-            dsl.withStyleColor(Col.Text, style.colors[Col.TextDisabled]) {
+            withStyleColor(Col.Text, style.colors[Col.TextDisabled]) {
                 text(fmt, *args)
             }
 

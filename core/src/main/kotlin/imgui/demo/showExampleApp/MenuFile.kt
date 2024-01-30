@@ -16,7 +16,7 @@ import imgui.ImGui.text
 import imgui.ImGui.textLineHeight
 import imgui.ImGui.windowDrawList
 import imgui.api.slider
-import imgui.dsl.menu
+import imgui.menu
 
 object MenuFile {
 
