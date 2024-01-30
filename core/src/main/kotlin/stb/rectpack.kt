@@ -1,4 +1,4 @@
-package imgui.stb_
+package imgui.stb
 
 // [DEAR IMGUI]
 // This is a slightly modified version of stb_rect_pack.h 1.01.

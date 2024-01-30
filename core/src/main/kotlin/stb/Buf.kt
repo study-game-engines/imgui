@@ -1,4 +1,4 @@
-package imgui.stb_
+package imgui.stb
 
 /** private structure */
 class Buf(var data: UByteArray = UByteArray(0), val ptr: Int = 0) {

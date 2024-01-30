@@ -1,4 +1,4 @@
-package imgui.stb_
+package imgui.stb
 
 class Node(val i: Int) {
     var x = 0

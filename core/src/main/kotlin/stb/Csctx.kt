@@ -1,4 +1,4 @@
-package imgui.stb_
+package imgui.stb
 
 import glm_.i
 

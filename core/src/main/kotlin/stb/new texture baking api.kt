@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 
-package imgui.stb_
+package imgui.stb
 
 import glm_.vec2.Vec2
 import kotlin.math.floor

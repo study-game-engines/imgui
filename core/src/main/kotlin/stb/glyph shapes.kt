@@ -1,13 +1,13 @@
 @file:OptIn(ExperimentalUnsignedTypes::class, ExperimentalStdlibApi::class)
 
-package imgui.stb_
+package imgui.stb
 
 import glm_.f
 import glm_.has
 import glm_.i
-import imgui.stb_.TrueType.getGlyfOffset
-import imgui.stb_.TrueType.short
-import imgui.stb_.TrueType.ushort
+import imgui.stb.TrueType.getGlyfOffset
+import imgui.stb.TrueType.short
+import imgui.stb.TrueType.ushort
 import kotlin.math.sqrt
 
 //////////////////////////////////////////////////////////////////////////////

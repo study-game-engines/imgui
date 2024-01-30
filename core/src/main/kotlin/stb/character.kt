@@ -1,17 +1,17 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 
-package imgui.stb_
+package imgui.stb
 
 import glm_.f
 import glm_.i
 import glm_.s
 import glm_.vec3.Vec3i
 import glm_.vec4.Vec4i
-import imgui.stb_.TrueType.getGlyfOffset
-import imgui.stb_.TrueType.getGlyphInfoT2
-import imgui.stb_.TrueType.short
-import imgui.stb_.TrueType.ulong
-import imgui.stb_.TrueType.ushort
+import imgui.stb.TrueType.getGlyfOffset
+import imgui.stb.TrueType.getGlyphInfoT2
+import imgui.stb.TrueType.short
+import imgui.stb.TrueType.ulong
+import imgui.stb.TrueType.ushort
 
 //////////////////////////////////////////////////////////////////////////////
 //

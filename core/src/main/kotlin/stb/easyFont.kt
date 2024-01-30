@@ -1,4 +1,4 @@
-package imgui.stb_
+package imgui.stb
 
 /* stb_easy_font.h - v1.0 - bitmap font for 3D rendering - public domain
  Sean Barrett, Feb 2015

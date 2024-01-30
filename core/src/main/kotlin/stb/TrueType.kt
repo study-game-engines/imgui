@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalUnsignedTypes::class, ExperimentalUnsignedTypes::class)
 
-package imgui.stb_
+package imgui.stb
 
 import glm_.f
 import glm_.i

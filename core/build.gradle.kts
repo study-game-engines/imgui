@@ -42,7 +42,9 @@ dependencies {
     }:$brotliVersion")
 }
 
-kotlin.jvmToolchain { languageVersion.set(JavaLanguageVersion.of(8)) }
+kotlin.jvmToolchain {
+    languageVersion.set(JavaLanguageVersion.of(8))
+}
 
 tasks {
     withType<KotlinCompilationTask<*>>().configureEach {

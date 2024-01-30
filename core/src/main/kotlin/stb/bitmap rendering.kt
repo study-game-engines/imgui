@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalStdlibApi::class, ExperimentalUnsignedTypes::class)
 
-package imgui.stb_
+package imgui.stb
 
 import glm_.f
 import glm_.i
@@ -108,7 +108,7 @@ fun Bitmap.rasterize(flatnessInPixels: Float, vertices: Array<Vertex>, numVerts:
  *
  *  [JVM]
  *  @return [windings, windingLengths, windingCount]*/
-fun flattenCurves(vertices: Array<Vertex>, numVerts: Int, objspaceFlatness: Float): Triple<Array<Vec2>, IntArray, Int> {
+@OptIn(ExperimentalStdlibApi::class) fun flattenCurves(vertices: Array<Vertex>, numVerts: Int, objspaceFlatness: Float): Triple<Array<Vec2>, IntArray, Int> {
     var points: Array<Vec2>? = null
     var numPoints = 0
 
@@ -247,8 +247,8 @@ fun tesselateCubic(points: Array<Vec2>?, numPoints_: Int, x0: Float, y0: Float, 
     return numPoints
 }
 
-fun Bitmap.rasterize(pts: Array<Vec2>, wCount: IntArray, windings: Int, scaleX: Float, scaleY: Float,
-                     shiftX: Float, shiftY: Float, offX: Int, offY: Int, invert: Boolean) {
+@OptIn(ExperimentalStdlibApi::class) fun Bitmap.rasterize(pts: Array<Vec2>, wCount: IntArray, windings: Int, scaleX: Float, scaleY: Float,
+                                                          shiftX: Float, shiftY: Float, offX: Int, offY: Int, invert: Boolean) {
 
     val yScaleInv = if (invert) -scaleY else scaleY
     val vsubsample = when (TrueType.RASTERIZER_VERSION) {

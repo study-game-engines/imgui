@@ -11,7 +11,7 @@ import glm_.vec4.Vec4
 import imgui.*
 import imgui.ImGui.style
 import imgui.internal.*
-import imgui.stb_.*
+import imgui.stb.*
 import kool.*
 import uno.convert.decode85
 import uno.kotlin.plusAssign
