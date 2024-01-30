@@ -29,7 +29,6 @@ import org.lwjgl.opengl.GL45C.GL_CLIP_ORIGIN
 import org.lwjgl.system.MemoryUtil.NULL
 import org.lwjgl.system.Platform
 
-
 class ImGuiGL3 : ImGuiGL {
 
     /** ~ImGui_ImplOpenGL3_Init */
