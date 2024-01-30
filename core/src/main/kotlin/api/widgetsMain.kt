@@ -141,7 +141,6 @@ interface widgetsMain {
     // We use JvmName to ensure that the function can be seen in Java as checkboxFlags
     // Suppressing the warning since we're in an interface.
     @Suppress("INAPPLICABLE_JVM_NAME")
-    @JvmName("checkboxFlags")
     fun <F : Flag<F>> checkboxFlags(label: String, flags: FlagArray<F>, flagsValue: Flag<F>): Boolean = checkboxFlagsT(label, flags mutablePropertyAt 0, flagsValue)
 
     fun <F : Flag<F>> checkboxFlags(label: String, flagsPtr: KMutableProperty0<Flag<F>>, flagsValue: Flag<F>): Boolean = checkboxFlagsT(label, flagsPtr, flagsValue)

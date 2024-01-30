@@ -50,15 +50,12 @@ value class FlagArray<F : Flag<F>> private constructor(private val array: IntArr
 
     // Provides Java-style constructors
     companion object {
-        @JvmName("of")
         @JvmStatic
         fun <F : Flag<F>> of(flag: Flag<F>): FlagArray<F> = FlagArray(flag)
 
-        @JvmName("of")
         @JvmStatic
         fun <F : Flag<F>> of(vararg flags: Flag<F>): FlagArray<F> = FlagArray(flags)
 
-        @JvmName("of")
         @JvmStatic
         fun <F : Flag<F>> of(size: Int): FlagArray<F> = FlagArray(size)
 
