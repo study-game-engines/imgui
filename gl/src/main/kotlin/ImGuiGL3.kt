@@ -30,7 +30,7 @@ import org.lwjgl.system.MemoryUtil.NULL
 import org.lwjgl.system.Platform
 
 
-class ImplGL3 : GLInterface {
+class ImGuiGL3 : ImGuiGL {
 
     /** ~ImGui_ImplOpenGL3_Init */
     init {

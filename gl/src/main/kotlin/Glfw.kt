@@ -20,6 +20,8 @@ import org.lwjgl.system.Platform
 import uno.glfw.*
 import uno.glfw.GlfwWindow.CursorMode
 
+typealias WNDPROC = Long
+
 enum class GlfwClientApi { Unknown, OpenGL, Vulkan }
 
 // TODO chain previously installed callbacks
@@ -28,13 +30,7 @@ enum class GlfwClientApi { Unknown, OpenGL, Vulkan }
 // GLFW callbacks install
 // - When calling Init with 'install_callbacks=true': ImGui_ImplGlfw_InstallCallbacks() is called. GLFW callbacks will be installed for you. They will chain-call user's previously installed callbacks, if any.
 // - When calling Init with 'install_callbacks=false': GLFW callbacks won't be installed. You will need to call individual function yourself from your own GLFW callbacks.
-class ImplGlfw @JvmOverloads constructor(
-
-        /** Main window */
-        val window: GlfwWindow, installCallbacks: Boolean = true,
-        /** for vr environment */
-        val vrTexSize: Vec2i? = null,
-        clientApi: GlfwClientApi = GlfwClientApi.OpenGL) {
+class ImplGlfw @JvmOverloads constructor(val window: GlfwWindow, installCallbacks: Boolean = true, val vrTexSize: Vec2i? = null, clientApi: GlfwClientApi = GlfwClientApi.OpenGL) {
 
     /** for passing inputs in vr */
     var vrCursorPos: Vec2? = null

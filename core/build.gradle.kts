@@ -15,9 +15,6 @@ plugins {
     id("com.google.devtools.ksp")
 }
 
-group = rootProject.group
-version = rootProject.version
-
 dependencies {
     implementation(kotlin("reflect"))
     testImplementation(kotlin("test"))
@@ -51,16 +48,3 @@ tasks {
     withType<KotlinCompilationTask<*>>().configureEach { compilerOptions.freeCompilerArgs.addAll("-opt-in=kotlin.RequiresOptIn", "-Xallow-kotlin-package") }
     test { useJUnitPlatform() }
 }
-
-publishing {
-    publications {
-        createGithubPublication {
-            from(components["java"])
-            artifactId = "${rootProject.name}-${project.name}"
-            suppressAllPomMetadataWarnings()
-        }
-    }
-    repositories.github { domain = "kotlin-graphics/mary" }
-}
-
-java.withSourcesJar()

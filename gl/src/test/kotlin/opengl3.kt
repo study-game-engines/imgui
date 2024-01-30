@@ -11,7 +11,7 @@ import imgui.api.slider
 import imgui.classes.Context
 import imgui.div
 import imgui.button
-import imgui.impl.gl.ImplGL3
+import imgui.impl.gl.ImGuiGL3
 import imgui.impl.glfw.ImplGlfw
 import org.lwjgl.opengl.GL
 import org.lwjgl.opengl.GL11.*
@@ -25,7 +25,7 @@ import uno.glfw.glfw
 // Data
 lateinit var gAppWindow: GlWindow
 lateinit var implGlfw: ImplGlfw
-lateinit var implGl3: ImplGL3
+lateinit var gl3: ImGuiGL3
 
 // Our state
 // (we use static, which essentially makes the variable globals, as a convenience to keep the example code easy to follow)
@@ -48,14 +48,14 @@ fun main() {
             when (Platform.get()) {
                 // TODO Opengl_es2? GL ES 2.0 + GLSL 100
                 Platform.MACOSX -> {    // GL 3.2 + GLSL 150
-                    ImplGL3.data.glslVersion = 150
+                    ImGuiGL3.data.glslVersion = 150
                     version = "3.2"
                     profile = Hints.Context.Profile.Core      // 3.2+ only
                     forwardComp = true  // Required on Mac
                 }
 
                 else -> {   // GL 3.0 + GLSL 130
-                    ImplGL3.data.glslVersion = 130
+                    ImGuiGL3.data.glslVersion = 130
                     version = "3.0"
                     //profile = core      // 3.2+ only
                     //forwardComp = true  // 3.0+ only
@@ -82,7 +82,7 @@ fun main() {
 
     // Setup Platform/Renderer backend
     implGlfw = ImplGlfw(gAppWindow, true)
-    implGl3 = ImplGL3()
+    gl3 = ImGuiGL3()
 
     // Load Fonts
     // - If no fonts are loaded, dear imgui will use the default font. You can also load multiple fonts and use ImGui::PushFont()/PopFont() to select them.
@@ -115,7 +115,7 @@ fun main() {
     gAppWindow.loop {
 
         // Start the Dear ImGui frame
-        implGl3.newFrame()
+        gl3.newFrame()
         implGlfw.newFrame()
 
         ImGui.newFrame()
@@ -166,13 +166,13 @@ fun main() {
         glClearColor(clearColor.x * clearColor.w, clearColor.y * clearColor.w, clearColor.z * clearColor.w, clearColor.w)
         glClear(GL_COLOR_BUFFER_BIT)
 
-        implGl3.renderDrawData(ImGui.drawData!!)
+        gl3.renderDrawData(ImGui.drawData!!)
 
         if (DEBUG)
             checkError("mainLoop")
     }
 
-    implGl3.shutdown()
+    gl3.shutdown()
     implGlfw.shutdown()
     ctx.destroy()
 
