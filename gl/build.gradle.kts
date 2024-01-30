@@ -1,35 +1,10 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
-
 plugins {
-    kotlin("jvm")
+    id("org.jetbrains.kotlin.jvm")
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-    implementation(kotlin("reflect"))
-    implementation(projects.core)
+    implementation(project(":core"))
     api("kotlin.graphics:uno:0.7.21")
-
-    // lwjgl
-    implementation("org.lwjgl:lwjgl:3.3.3")
-    implementation("org.lwjgl:lwjgl:3.3.3:natives-windows")
-    implementation("org.lwjgl:lwjgl:3.3.3:natives-macos")
-    implementation("org.lwjgl:lwjgl-opengl:3.3.3")
-    implementation("org.lwjgl:lwjgl-opengl:3.3.3:natives-windows")
-    implementation("org.lwjgl:lwjgl-opengl:3.3.3:natives-macos")
-    implementation("org.lwjgl:lwjgl-glfw:3.3.3")
-    implementation("org.lwjgl:lwjgl-glfw:3.3.3:natives-windows")
-    implementation("org.lwjgl:lwjgl-jawt:3.3.3")
-}
-
-kotlin.jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of(8))
-}
-
-tasks {
-    withType<KotlinCompilationTask<*>>().configureEach {
-        compilerOptions.freeCompilerArgs.addAll("-opt-in=kotlin.RequiresOptIn", "-Xallow-kotlin-package")
-    }
 }
 
 /*examples*/

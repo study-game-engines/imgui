@@ -4,6 +4,7 @@ import org.lwjgl.Version
 import org.lwjgl.glfw.Callbacks
 import org.lwjgl.glfw.GLFW
 import org.lwjgl.glfw.GLFWErrorCallback
+import org.lwjgl.glfw.GLFWVidMode
 import org.lwjgl.opengl.GL
 import org.lwjgl.opengl.GL11
 import org.lwjgl.system.MemoryStack
@@ -43,13 +44,8 @@ private fun main() {
         if (window == MemoryUtil.NULL) throw RuntimeException("Failed to create the GLFW window")
 
         // Setup a key callback. It will be called every time a key is pressed, repeated or released.
-        GLFW.glfwSetKeyCallback(
-                window
-        ) { window: Long, key: Int, scancode: Int, action: Int, mods: Int ->
-            if (key == GLFW.GLFW_KEY_ESCAPE && action == GLFW.GLFW_RELEASE) GLFW.glfwSetWindowShouldClose(
-                    window,
-                    true
-            ) // We will detect this in the rendering loop
+        GLFW.glfwSetKeyCallback(window) { window: Long, key: Int, scancode: Int, action: Int, mods: Int ->
+            if (key == GLFW.GLFW_KEY_ESCAPE && action == GLFW.GLFW_RELEASE) GLFW.glfwSetWindowShouldClose(window, true)
         }
 
         MemoryStack.stackPush().use { stack ->
@@ -60,15 +56,10 @@ private fun main() {
             GLFW.glfwGetWindowSize(window, pWidth, pHeight)
 
             // Get the resolution of the primary monitor
-            val vidmode =
-                    GLFW.glfwGetVideoMode(GLFW.glfwGetPrimaryMonitor())
+            val vidmode: GLFWVidMode = GLFW.glfwGetVideoMode(GLFW.glfwGetPrimaryMonitor()) as GLFWVidMode
 
             // Center the window
-            GLFW.glfwSetWindowPos(
-                    window,
-                    (vidmode!!.width() - pWidth[0]) / 2,
-                    (vidmode.height() - pHeight[0]) / 2
-            )
+            GLFW.glfwSetWindowPos(window, (vidmode.width() - pWidth[0]) / 2, (vidmode.height() - pHeight[0]) / 2)
         }
         // Make the OpenGL context current
         GLFW.glfwMakeContextCurrent(window)
@@ -114,5 +105,5 @@ private fun main() {
 
     // Terminate GLFW and free the error callback
     GLFW.glfwTerminate()
-    GLFW.glfwSetErrorCallback(null)!!.free()
+    GLFW.glfwSetErrorCallback(null)?.free()
 }
