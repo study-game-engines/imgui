@@ -5,8 +5,6 @@ import glm_.*
 import glm_.vec2.Vec2
 import glm_.vec4.Vec4
 import imgui.*
-import imgui.ImGui.io
-import imgui.api.g
 import imgui.classes.DrawList
 import imgui.has
 import imgui.internal.charIsBlankA
@@ -532,9 +530,9 @@ class Font {
             }
         }
         fallbackAdvanceX = fallbackGlyph!!.advanceX
-        for (i in 0 .. maxCodepoint)
-        if (indexAdvanceX[i] < 0f)
-            indexAdvanceX[i] = fallbackAdvanceX
+        for (i in 0..maxCodepoint)
+            if (indexAdvanceX[i] < 0f)
+                indexAdvanceX[i] = fallbackAdvanceX
 
         // Setup Ellipsis character. It is required for rendering elided text. We prefer using U+2026 (horizontal ellipsis).
         // However some old fonts may contain ellipsis at U+0085. Here we auto-detect most suitable ellipsis character.

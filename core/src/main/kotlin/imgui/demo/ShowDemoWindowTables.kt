@@ -105,12 +105,12 @@ object ShowDemoWindowTables {
     class EnumDesc(val value: TableFlags, val name: String, val tooltip: String)
 
     val policies = arrayOf(
-        EnumDesc(none, "Default", "Use default sizing policy:\n- ImGuiTableFlags_SizingFixedFit if ScrollX is on or if host window has ImGuiWindowFlags_AlwaysAutoResize.\n- ImGuiTableFlags_SizingStretchSame otherwise."),
-        EnumDesc(Tf.SizingFixedFit, "ImGuiTableFlags_SizingFixedFit", "Columns default to _WidthFixed (if resizable) or _WidthAuto (if not resizable), matching contents width."),
-        EnumDesc(Tf.SizingFixedSame, "ImGuiTableFlags_SizingFixedSame", "Columns are all the same width, matching the maximum contents width.\nImplicitly disable ImGuiTableFlags_Resizable and enable ImGuiTableFlags_NoKeepColumnsVisible."),
-        EnumDesc(Tf.SizingStretchProp, "ImGuiTableFlags_SizingStretchProp", "Columns default to _WidthStretch with weights proportional to their widths."),
-        EnumDesc(Tf.SizingStretchSame, "ImGuiTableFlags_SizingStretchSame", "Columns default to _WidthStretch with same weights.")
-                          )
+            EnumDesc(none, "Default", "Use default sizing policy:\n- ImGuiTableFlags_SizingFixedFit if ScrollX is on or if host window has ImGuiWindowFlags_AlwaysAutoResize.\n- ImGuiTableFlags_SizingStretchSame otherwise."),
+            EnumDesc(Tf.SizingFixedFit, "ImGuiTableFlags_SizingFixedFit", "Columns default to _WidthFixed (if resizable) or _WidthAuto (if not resizable), matching contents width."),
+            EnumDesc(Tf.SizingFixedSame, "ImGuiTableFlags_SizingFixedSame", "Columns are all the same width, matching the maximum contents width.\nImplicitly disable ImGuiTableFlags_Resizable and enable ImGuiTableFlags_NoKeepColumnsVisible."),
+            EnumDesc(Tf.SizingStretchProp, "ImGuiTableFlags_SizingStretchProp", "Columns default to _WidthStretch with weights proportional to their widths."),
+            EnumDesc(Tf.SizingStretchSame, "ImGuiTableFlags_SizingStretchSame", "Columns default to _WidthStretch with same weights.")
+    )
 
     /** Show a combo box with a choice of sizing policies */
     fun editTableSizingFlags(pFlags: KMutableProperty0<TableFlags>) {
@@ -177,7 +177,7 @@ object ShowDemoWindowTables {
     var innerWidth0 = 1000f
 
     val templateItemsNames = arrayOf("Banana", "Apple", "Cherry", "Watermelon", "Grapefruit", "Strawberry", "Mango",
-                                     "Kiwi", "Orange", "Pineapple", "Blueberry", "Plum", "Coconut", "Pear", "Apricot")
+            "Kiwi", "Orange", "Pineapple", "Blueberry", "Plum", "Coconut", "Pear", "Apricot")
 
     // We are passing our own identifier to TableSetupColumn() to facilitate identifying columns in the sorting code.
     // This identifier will be passed down into ImGuiTableSortSpec::ColumnUserID.
@@ -560,8 +560,8 @@ object ShowDemoWindowTables {
                 // If there is not enough available width to fit all columns, they will however be resized down.
                 // FIXME-TABLE: Providing a stretch-on-init would make sense especially for tables which don't have saved settings
                 helpMarker("Using _Resizable + _SizingFixedFit flags.\n" +
-                           "Fixed-width columns generally makes more sense if you want to use horizontal scrolling.\n\n" +
-                           "Double-click a column border to auto-fit the column to its contents.")
+                        "Fixed-width columns generally makes more sense if you want to use horizontal scrolling.\n\n" +
+                        "Double-click a column border to auto-fit the column to its contents.")
                 pushingStyleCompact {
                     checkboxFlags("ImGuiTableFlags_NoHostExtendX", ::flags, Tf.NoHostExtendX)
                 }
@@ -584,7 +584,7 @@ object ShowDemoWindowTables {
         operator fun invoke() {
             treeNode("Resizable, mixed") {
                 helpMarker("Using TableSetupColumn() to alter resizing policy on a per-column basis.\n\n" +
-                           "When combining Fixed and Stretch columns, generally you only want one, maybe two trailing columns to use _WidthStretch.")
+                        "When combining Fixed and Stretch columns, generally you only want one, maybe two trailing columns to use _WidthStretch.")
 
                 table("table1", 3, flags) {
                     tableSetupColumn("AAA", Tcf.WidthFixed)
@@ -624,8 +624,8 @@ object ShowDemoWindowTables {
         operator fun invoke() {
             treeNode("Reorderable, hideable, with headers") {
                 helpMarker(
-                    "Click and drag column headers to reorder columns.\n\n" +
-                    "Right-click on a header to open a context menu.")
+                        "Click and drag column headers to reorder columns.\n\n" +
+                                "Right-click on a header to open a context menu.")
                 pushingStyleCompact {
                     checkboxFlags("ImGuiTableFlags_Resizable", ::flags, Tf.Resizable)
                     checkboxFlags("ImGuiTableFlags_Reorderable", ::flags, Tf.Reorderable)
@@ -681,12 +681,12 @@ object ShowDemoWindowTables {
                 // First example: showcase use of padding flags and effect of BorderOuterV/BorderInnerV on X padding.
                 // We don't expose BorderOuterH/BorderInnerH here because they have no effect on X padding.
                 helpMarker("We often want outer padding activated when any using features which makes the edges of a column visible:\n" +
-                           "e.g.:\n" +
-                           "- BorderOuterV\n" +
-                           "- any form of row selection\n" +
-                           "Because of this, activating BorderOuterV sets the default to PadOuterX. Using PadOuterX or NoPadOuterX you can override the default.\n\n" +
-                           "Actual padding values are using style.CellPadding.\n\n" +
-                           "In this demo we don't show horizontal borders to emphasize how they don't affect default horizontal padding.")
+                        "e.g.:\n" +
+                        "- BorderOuterV\n" +
+                        "- any form of row selection\n" +
+                        "Because of this, activating BorderOuterV sets the default to PadOuterX. Using PadOuterX or NoPadOuterX you can override the default.\n\n" +
+                        "Actual padding values are using style.CellPadding.\n\n" +
+                        "In this demo we don't show horizontal borders to emphasize how they don't affect default horizontal padding.")
 
                 pushingStyleCompact {
                     checkboxFlags("ImGuiTableFlags_PadOuterX", this::flags1, Tf.PadOuterX)
@@ -899,10 +899,10 @@ object ShowDemoWindowTables {
         operator fun invoke() {
             treeNode("Horizontal scrolling") {
                 helpMarker(
-                    "When ScrollX is enabled, the default sizing policy becomes ImGuiTableFlags_SizingFixedFit, " +
-                    "as automatically stretching columns doesn't make much sense with horizontal scrolling.\n\n" +
-                    "Also note that as of the current version, you will almost always want to enable ScrollY along with ScrollX," +
-                    "because the container window won't automatically extend vertically to fix contents (this may be improved in future versions).")
+                        "When ScrollX is enabled, the default sizing policy becomes ImGuiTableFlags_SizingFixedFit, " +
+                                "as automatically stretching columns doesn't make much sense with horizontal scrolling.\n\n" +
+                                "Also note that as of the current version, you will almost always want to enable ScrollY along with ScrollX," +
+                                "because the container window won't automatically extend vertically to fix contents (this may be improved in future versions).")
 
                 pushingStyleCompact {
                     checkboxFlags("ImGuiTableFlags_Resizable", ::flags, Tf.Resizable)
@@ -950,9 +950,9 @@ object ShowDemoWindowTables {
                 textUnformatted("Stretch + ScrollX")
                 sameLine()
                 helpMarker(
-                    "Showcase using Stretch columns + ScrollX together: " +
-                    "this is rather unusual and only makes sense when specifying an 'inner_width' for the table!\n" +
-                    "Without an explicit value, inner_width is == outer_size.x and therefore using Stretch columns + ScrollX together doesn't make sense.")
+                        "Showcase using Stretch columns + ScrollX together: " +
+                                "this is rather unusual and only makes sense when specifying an 'inner_width' for the table!\n" +
+                                "Without an explicit value, inner_width is == outer_size.x and therefore using Stretch columns + ScrollX together doesn't make sense.")
                 pushingStyleCompact {
                     withID("flags3") {
                         withItemWidth(TEXT_BASE_WIDTH * 30) {
@@ -1226,15 +1226,15 @@ object ShowDemoWindowTables {
         }
 
         val nodes = arrayOf(
-            MyTreeNode("Root", "Folder", -1, 1, 3), // 0
-            MyTreeNode("Music", "Folder", -1, 4, 2), // 1
-            MyTreeNode("Textures", "Folder", -1, 6, 3), // 2
-            MyTreeNode("desktop.ini", "System file", 1024, -1, -1), // 3
-            MyTreeNode("File1_a.wav", "Audio file", 123000, -1, -1), // 4
-            MyTreeNode("File1_b.wav", "Audio file", 456000, -1, -1), // 5
-            MyTreeNode("Image001.png", "Image file", 203128, -1, -1), // 6
-            MyTreeNode("Copy of Image001.png", "Image file", 203256, -1, -1), // 7
-            MyTreeNode("Copy of Image001 (Final2).png", "Image file", 203512, -1, -1)) // 8
+                MyTreeNode("Root", "Folder", -1, 1, 3), // 0
+                MyTreeNode("Music", "Folder", -1, 4, 2), // 1
+                MyTreeNode("Textures", "Folder", -1, 6, 3), // 2
+                MyTreeNode("desktop.ini", "System file", 1024, -1, -1), // 3
+                MyTreeNode("File1_a.wav", "Audio file", 123000, -1, -1), // 4
+                MyTreeNode("File1_b.wav", "Audio file", 456000, -1, -1), // 5
+                MyTreeNode("Image001.png", "Image file", 203128, -1, -1), // 6
+                MyTreeNode("Copy of Image001.png", "Image file", 203256, -1, -1), // 7
+                MyTreeNode("Copy of Image001 (Final2).png", "Image file", 203512, -1, -1)) // 8
 
         operator fun invoke() {
             treeNode("Tree view") {
@@ -1256,9 +1256,9 @@ object ShowDemoWindowTables {
         operator fun invoke() {
             treeNode("Item width") {
                 helpMarker(
-                    "Showcase using PushItemWidth() and how it is preserved on a per-column basis.\n\n" +
-                    "Note that on auto-resizing non-resizable fixed columns, querying the content width for e.g. right-alignment doesn't make sense."
-                          )
+                        "Showcase using PushItemWidth() and how it is preserved on a per-column basis.\n\n" +
+                                "Note that on auto-resizing non-resizable fixed columns, querying the content width for e.g. right-alignment doesn't make sense."
+                )
                 table("table_item_width", 3, Tf.Borders) {
                     tableSetupColumn("small")
                     tableSetupColumn("half")
@@ -1525,7 +1525,7 @@ object ShowDemoWindowTables {
 
     object Advanced {
         var flags = Tf.Resizable / Tf.Reorderable / Tf.Hideable / Tf.Sortable / Tf.SortMulti / Tf.RowBg /
-                    Tf.Borders / Tf.NoBordersInBody / Tf.ScrollX / Tf.ScrollY / Tf.SizingFixedFit
+                Tf.Borders / Tf.NoBordersInBody / Tf.ScrollX / Tf.ScrollY / Tf.SizingFixedFit
 
         enum class ContentsType { Text, Button, SmallButton, FillButton, Selectable, SelectableSpanRow }
 
@@ -1792,7 +1792,7 @@ object ShowDemoWindowTables {
                             text(": DrawCmd: +${tableDrawListDrawCmdCount - parentDrawListDrawCmdCount} (in same window)")
                         else
                             text(": DrawCmd: +${tableDrawListDrawCmdCount - 1} (in child window), Scroll: (%.f/%.f) (%.f/%.f)",
-                                 tableScrollCur.x, tableScrollMax.x, tableScrollCur.y, tableScrollMax.y)
+                                    tableScrollCur.x, tableScrollMax.x, tableScrollCur.y, tableScrollMax.y)
                     }
             }
         }

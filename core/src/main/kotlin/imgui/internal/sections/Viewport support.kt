@@ -47,7 +47,7 @@ class ViewportP : Viewport() {
     fun calcWorkRectSize(offMin: Vec2, offMax: Vec2) = Vec2(0f max (size.x - offMin.x + offMax.x), 0f max (size.y - offMin.y + offMax.y))
     fun updateWorkRect() { // Update public fields
         workPos put calcWorkRectPos(workOffsetMin)
-        workSize  put calcWorkRectSize(workOffsetMin, workOffsetMax)
+        workSize put calcWorkRectSize(workOffsetMin, workOffsetMax)
     }
 
     // Helpers to retrieve ImRect (we don't need to store BuildWorkRect as every access tend to change it, hence the code asymmetry)

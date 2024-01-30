@@ -26,6 +26,7 @@ internal var ptrId: Array<Int> = Array(512) { it }
 operator fun StringBuilder.plusAssign(string: String) {
     append(string)
 }
+
 operator fun StringBuilder.plusAssign(char: Char) {
     append(char)
 }
@@ -196,6 +197,7 @@ fun ByteArray.strlen(begin: Int = 0): Int {
         else len++
     return len
 }
+
 fun List<Char>.strlen(begin: Int = 0): Int {
     var len = 0
     for (i in begin until size)

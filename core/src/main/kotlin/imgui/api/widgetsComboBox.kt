@@ -81,20 +81,20 @@ interface widgetsComboBox {
         renderNavHighlight(bb, id)
         if (flags hasnt Cf.NoPreview)
             window.drawList.addRectFilled(
-                bb.min,
-                Vec2(valueX2, bb.max.y),
-                frameCol.u32,
-                style.frameRounding,
-                if (flags has Cf.NoArrowButton) DrawFlag.RoundCornersAll else DrawFlag.RoundCornersLeft
+                    bb.min,
+                    Vec2(valueX2, bb.max.y),
+                    frameCol.u32,
+                    style.frameRounding,
+                    if (flags has Cf.NoArrowButton) DrawFlag.RoundCornersAll else DrawFlag.RoundCornersLeft
             )
         if (flags hasnt Cf.NoArrowButton) {
             val bgCol = if (popupOpen || hovered) Col.ButtonHovered else Col.Button
             window.drawList.addRectFilled(
-                Vec2(valueX2, bb.min.y),
-                bb.max,
-                bgCol.u32,
-                style.frameRounding,
-                if (w <= arrowSize) DrawFlag.RoundCornersAll else DrawFlag.RoundCornersRight
+                    Vec2(valueX2, bb.min.y),
+                    bb.max,
+                    bgCol.u32,
+                    style.frameRounding,
+                    if (w <= arrowSize) DrawFlag.RoundCornersAll else DrawFlag.RoundCornersRight
             )
             if (valueX2 + arrowSize - style.framePadding.x <= bb.max.x)
                 window.drawList.renderArrow(Vec2(valueX2 + style.framePadding.y, bb.min.y + style.framePadding.y), Col.Text.u32, Dir.Down, 1f)
@@ -129,7 +129,7 @@ interface widgetsComboBox {
 
     /** Combo box helper allowing to pass an array of strings.  */
     fun combo(label: String, currentItem: KMutableProperty0<Int>, items: Array<String>, heightInItems: Int = -1): Boolean =
-        combo(label, currentItem, items.toList(), heightInItems)
+            combo(label, currentItem, items.toList(), heightInItems)
 
     /** Combo box helper allowing to pass all items in a single string literal holding multiple zero-terminated items "item1\0item2\0" */
     fun combo(label: String, currentItem: IntArray, itemsSeparatedByZeros: String, heightInItems: Int = -1): Boolean = combo(label, currentItem mutablePropertyAt 0, itemsSeparatedByZeros, heightInItems)

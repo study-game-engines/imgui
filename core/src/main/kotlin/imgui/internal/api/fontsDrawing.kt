@@ -2,7 +2,6 @@ package imgui.internal.api
 
 import glm_.func.common.max
 import imgui.ImGui
-import imgui.ImGui.foregroundDrawList
 import imgui.api.g
 import imgui.classes.DrawList
 import imgui.font.Font

@@ -190,10 +190,10 @@ internal interface widgetsWindowDecorations {
         // Render
         val bgCol = Col.ScrollbarBg.u32
         val grabCol = ImGui.getColorU32(when {
-                                            held -> Col.ScrollbarGrabActive
-                                            hovered -> Col.ScrollbarGrabHovered
-                                            else -> Col.ScrollbarGrab
-                                        }, alpha)
+            held -> Col.ScrollbarGrabActive
+            hovered -> Col.ScrollbarGrabHovered
+            else -> Col.ScrollbarGrab
+        }, alpha)
         window.drawList.addRectFilled(bbFrame.min, bbFrame.max, bgCol, window.windowRounding, flags)
         val grabRect = when (axis) {
             Axis.X -> Rect(lerp(bb.min.x, bb.max.x, grabVNorm), bb.min.y, lerp(bb.min.x, bb.max.x, grabVNorm) + grabHPixels, bb.max.y)
@@ -210,17 +210,17 @@ internal interface widgetsWindowDecorations {
         val outerRect = rect() //        val innerRect = innerRect
         val borderSize = windowBorderSize
         val scrollbarSize =
-            scrollbarSizes[axis xor 1] // (ScrollbarSizes.x = width of Y scrollbar; ScrollbarSizes.y = height of X scrollbar)
+                scrollbarSizes[axis xor 1] // (ScrollbarSizes.x = width of Y scrollbar; ScrollbarSizes.y = height of X scrollbar)
         assert(scrollbarSize > 0f)
         return when (axis) {
             Axis.X -> Rect(innerRect.min.x,
-                           max(outerRect.min.y, outerRect.max.y - borderSize - scrollbarSize),
-                           innerRect.max.x,
-                           outerRect.max.y)
+                    max(outerRect.min.y, outerRect.max.y - borderSize - scrollbarSize),
+                    innerRect.max.x,
+                    outerRect.max.y)
             else -> Rect(max(outerRect.min.x, outerRect.max.x - borderSize - scrollbarSize),
-                         innerRect.min.y,
-                         outerRect.max.x,
-                         innerRect.max.y)
+                    innerRect.min.y,
+                    outerRect.max.x,
+                    innerRect.max.y)
         }
     }
 

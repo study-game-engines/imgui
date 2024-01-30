@@ -807,14 +807,14 @@ interface demoDebugInformations {
          *
          *  add style selector block (not a window), essentially a combo listing the default styles. */
         operator fun invoke(label: String) =
-            if (combo(label, ::styleIdx, "Dark\u0000Light\u0000Classic\u0000")) {
-                when (styleIdx) {
-                    0 -> styleColorsDark()
-                    1 -> styleColorsLight()
-                    2 -> styleColorsClassic()
-                }
-                true
-            } else false
+                if (combo(label, ::styleIdx, "Dark\u0000Light\u0000Classic\u0000")) {
+                    when (styleIdx) {
+                        0 -> styleColorsDark()
+                        1 -> styleColorsLight()
+                        2 -> styleColorsClassic()
+                    }
+                    true
+                } else false
     }
 
     /** Demo helper function to select among loaded fonts.

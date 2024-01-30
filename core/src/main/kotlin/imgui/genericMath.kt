@@ -73,13 +73,13 @@ sealed interface NumberOps<N> where N : Number, N : Comparable<N> {
     fun N.format(format: String): String {
         // [JVM] we have to filter `.`, since `%.03d` causes `IllegalFormatPrecisionException`, but `%03d` doesn't
         return format.replace(".", "").format(when (this) {
-                                                  // we need to intervene since java printf cant handle %u
-                                                  is Ubyte -> i
-                                                  is Ushort -> i
-                                                  is Uint -> L
-                                                  is Ulong -> toBigInt()
-                                                  else -> this
-                                              })
+            // we need to intervene since java printf cant handle %u
+            is Ubyte -> i
+            is Ushort -> i
+            is Uint -> L
+            is Ulong -> toBigInt()
+            else -> this
+        })
     }
 
     operator fun N.plus(other: N): N
@@ -94,10 +94,10 @@ private fun <N, FP> NumberFpOps<N, FP>.nDivN(n: N, other: N): N where N : Number
 fun <N> NumberOps<N>.parse(buf: ByteArray, format: String): N? where N : Number, N : Comparable<N> {
     // ImCharIsBlankA
     buf.cStr
-        .replace(Regex("\\s+"), "")
-        .replace("\t", "")
-        .removeSuffix("\u0000")
-        .toByteArray(buf)
+            .replace(Regex("\\s+"), "")
+            .replace("\t", "")
+            .removeSuffix("\u0000")
+            .toByteArray(buf)
 
     if (buf.isEmpty()) return null
 

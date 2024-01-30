@@ -25,7 +25,6 @@ import imgui.ImGui.menuItem
 import imgui.ImGui.popItemWidth
 import imgui.ImGui.pushItemWidth
 import imgui.ImGui.sameLine
-import imgui.ImGui.separator
 import imgui.ImGui.separatorText
 import imgui.ImGui.setNextWindowPos
 import imgui.ImGui.setNextWindowSize
@@ -36,7 +35,6 @@ import imgui.ImGui.showUserGuide
 import imgui.ImGui.spacing
 import imgui.ImGui.tableNextColumn
 import imgui.ImGui.text
-import imgui.ImGui.textWrapped
 import imgui.ImGui.time
 import imgui.api.demoDebugInformations.Companion.helpMarker
 import imgui.api.demoDebugInformations.ShowAboutWindow
@@ -205,7 +203,7 @@ object DemoWindow {
             bulletText("Sections below are demonstrating many aspects of the library.")
             bulletText("The \"Examples\" menu above leads to more demo contents.")
             bulletText("The \"Tools\" menu above gives access to: About Box, Style Editor,\n" +
-                       "and Metrics/Debugger (general purpose Dear ImGui debugging tool).")
+                    "and Metrics/Debugger (general purpose Dear ImGui debugging tool).")
 
             separatorText("PROGRAMMER GUIDE:")
             bulletText("See the ShowDemoWindow() code in imgui_demo.cpp. <- you are here!")

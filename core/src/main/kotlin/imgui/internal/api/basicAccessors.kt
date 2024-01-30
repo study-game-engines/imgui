@@ -75,7 +75,7 @@ internal interface basicAccessors {
         g.activeIdHasBeenEditedThisFrame = false
         if (id != 0) {
             g.activeIdIsAlive = id
-            g.activeIdSource = if(g.navActivateId == id || g.navJustMovedToId == id) g.navInputSource else InputSource.Mouse
+            g.activeIdSource = if (g.navActivateId == id || g.navJustMovedToId == id) g.navInputSource else InputSource.Mouse
             assert(g.activeIdSource != InputSource.None)
         }
 

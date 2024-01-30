@@ -80,15 +80,15 @@ fun FontInfo.makeGlyphBitmapSubpixel(output: UByteArray, ptr: Int, outW: Int, ou
 fun FontInfo.getGlyphBitmapBox(glyph: Int, scaleX: Float, scaleY: Float, box: Vec4i = Vec4i()): Vec4i = getGlyphBitmapBoxSubpixel(glyph, scaleX, scaleY, box = box)
 
 fun FontInfo.getGlyphBitmapBoxSubpixel(glyph: Int, scaleX: Float, scaleY: Float, shiftX: Float = 0f, shiftY: Float = 0f, box: Vec4i = Vec4i()): Vec4i =
-    if (!getGlyphBox(glyph, box))
-    // e.g. space character
-        box(0) as Vec4i // TODO ->glm
-    else
-    // move to integral bboxes (treating pixels as little squares, what pixels get touched)?
-        Vec4i(floor(+box[0] * scaleX + shiftX),
-              floor(-box[3] * scaleY + shiftY),
-              ceil(+box[2] * scaleX + shiftX),
-              ceil(-box[1] * scaleY + shiftY))
+        if (!getGlyphBox(glyph, box))
+        // e.g. space character
+            box(0) as Vec4i // TODO ->glm
+        else
+        // move to integral bboxes (treating pixels as little squares, what pixels get touched)?
+            Vec4i(floor(+box[0] * scaleX + shiftX),
+                    floor(-box[3] * scaleY + shiftY),
+                    ceil(+box[2] * scaleX + shiftX),
+                    ceil(-box[1] * scaleY + shiftY))
 
 /** @TODO: don't expose this structure */
 class Bitmap(val w: Int, val h: Int,
@@ -151,18 +151,18 @@ fun flattenCurves(vertices: Array<Vertex>, numVerts: Int, objspaceFlatness: Floa
 
                 Vertex.Type.curve.ordinal -> {
                     numPoints = tesselateCurve(points, numPoints, x, y,
-                                               v.cX.f, v.cY.f,
-                                               v.x.f, v.y.f,
-                                               objspaceFlatnessSquared, 0f)
+                            v.cX.f, v.cY.f,
+                            v.x.f, v.y.f,
+                            objspaceFlatnessSquared, 0f)
                     x = v.x.f; y = v.y.f
                 }
 
                 Vertex.Type.cubic.ordinal -> {
                     numPoints = tesselateCubic(points, numPoints, x, y,
-                                               v.cX.f, v.cY.f,
-                                               v.cX1.f, v.cY1.f,
-                                               v.x.f, v.y.f,
-                                               objspaceFlatnessSquared, 0)
+                            v.cX.f, v.cY.f,
+                            v.cX1.f, v.cY1.f,
+                            v.x.f, v.y.f,
+                            objspaceFlatnessSquared, 0)
                     x = v.x.f; y = v.y.f
                 }
 

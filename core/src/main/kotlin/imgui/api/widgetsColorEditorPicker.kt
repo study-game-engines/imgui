@@ -129,7 +129,7 @@ interface widgetsColorEditorPicker {
      *  (if automatic height makes a vertical scrollbar appears, affecting automatic width..)
      *  FIXME: this is trying to be aware of style.Alpha but not fully correct. Also, the color wheel will have overlapping glitches with (style.Alpha < 1.0)   */
     fun colorPicker4(label: String, col: Vec3, flags: ColorEditFlags = none, refCol: Vec4?): Boolean =
-        colorPicker4(label, col.x, col.y, col.z, 1f, flags, refCol, col::put)
+            colorPicker4(label, col.x, col.y, col.z, 1f, flags, refCol, col::put)
 
     /** ColorPicker
      *  Note: only access 3 floats if ImGuiColorEditFlags_NoAlpha flag is set.
@@ -138,7 +138,7 @@ interface widgetsColorEditorPicker {
      *  (if automatic height makes a vertical scrollbar appears, affecting automatic width..)
      *  FIXME: this is trying to be aware of style.Alpha but not fully correct. Also, the color wheel will have overlapping glitches with (style.Alpha < 1.0)   */
     fun colorPicker4(label: String, col: Vec4, flags: ColorEditFlags = none, refCol: Vec4? = null): Boolean =
-        colorPicker4(label, col.x, col.y, col.z, col.w, flags, refCol, col::put)
+            colorPicker4(label, col.x, col.y, col.z, col.w, flags, refCol, col::put)
 
     fun colorButton(descId: String, col: Vec3, flags: ColorEditFlags = none, sizeArg: Vec2 = Vec2()): Boolean = colorButton(descId, col.x, col.y, col.z, 1f, flags, sizeArg)
 

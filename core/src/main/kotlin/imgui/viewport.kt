@@ -80,12 +80,12 @@ open class Viewport {
 
 /** (Optional) Support for IME (Input Method Editor) via the io.SetPlatformImeDataFn() function. */
 data class PlatformImeData(
-    /** A widget wants the IME to be visible */
-    var wantVisible: Boolean = false,
-    /** Position of the input cursor */
-    val inputPos: Vec2 = Vec2(),
-    /** Line height */
-    var inputLineHeight: Float = 0f) {
+        /** A widget wants the IME to be visible */
+        var wantVisible: Boolean = false,
+        /** Position of the input cursor */
+        val inputPos: Vec2 = Vec2(),
+        /** Line height */
+        var inputLineHeight: Float = 0f) {
 
     constructor(data: PlatformImeData) : this(data.wantVisible, Vec2(data.inputPos), data.inputLineHeight)
 }

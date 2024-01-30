@@ -1,5 +1,3 @@
-import magik.createGithubPublication
-import magik.github
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
@@ -14,8 +12,6 @@ plugins {
 dependencies {
     api(projects.core)
     api(projects.gl)
-    api(projects.glfw)
-    // vk
 }
 
 kotlin.jvmToolchain { languageVersion.set(JavaLanguageVersion.of(8)) }
@@ -26,15 +22,3 @@ tasks {
     }
     test { useJUnitPlatform() }
 }
-
-publishing {
-    publications {
-        createGithubPublication {
-            from(components["java"])
-            suppressAllPomMetadataWarnings()
-        }
-    }
-    repositories.github { domain = "kotlin-graphics/mary" }
-}
-
-java.withSourcesJar()

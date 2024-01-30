@@ -180,6 +180,7 @@ object imeListener : WindowProc() {
     }
 
     val WM_DPICHANGED = 0x02E0
+
     /* Ime Composition */
     val GCS_COMPATTR = 16
     val GCS_COMPCLAUSE = 32
@@ -193,6 +194,7 @@ object imeListener : WindowProc() {
     val GCS_RESULTREADCLAUSE = 1024
     val GCS_RESULTREADSTR = 512
     val GCS_RESULTSTR = 2048
+
     /* Ime Context */
     val ISC_SHOWUIALL = 3221225487
     val ISC_SHOWUIALLCANDIDATEWINDOW = 15 // ISC_SHOWUIGUIDWINDOW - ISC_SHOWUISOFTKBD
@@ -200,6 +202,7 @@ object imeListener : WindowProc() {
     val ISC_SHOWUICANDIDATEWINDOW_l1 = 1 shl 1
     val ISC_SHOWUICANDIDATEWINDOW_l2 = 1 shl 2
     val ISC_SHOWUICANDIDATEWINDOW_l3 = 1 shl 3
+
     /* Ime Notify */
     val IMN_CHANGECANDIDATE = 3
     val IMN_CLOSECANDIDATE = 4
@@ -215,6 +218,7 @@ object imeListener : WindowProc() {
     val IMN_SETOPENSTATUS = 8
     val IMN_SETSENTENCEMODE = 7
     val IMN_SETSTATUSWINDOWPOS = 12
+
     /* Ime Control */
     val IMC_CLOSESTATUSWINDOW = 33
     val IMC_GETCANDIDATEPOS = 7
@@ -226,6 +230,7 @@ object imeListener : WindowProc() {
     val IMC_SETCOMPOSITIONFONT = 10
     val IMC_SETCOMPOSITIONWINDOW = 12
     val IMC_SETSTATUSWINDOWPOS = 16
+
     /* Ime Request */
     val IMR_COMPOSITIONWINDOW = 1
     val IMR_CANDIDATEWINDOW = 2

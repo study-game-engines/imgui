@@ -45,7 +45,7 @@ class ListClipper {
     var displayStart = 0
     var displayEnd = 0
     val display
-        get() = displayStart ..< displayEnd
+        get() = displayStart..<displayEnd
     var itemsCount = -1
     var itemsHeight = 0f // [Internal] Height of item after a first step and item submission can calculate it
     var startPosY = 0f // [Internal] Cursor position at the time of Begin() or after table frozen rows are all processed

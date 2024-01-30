@@ -275,7 +275,7 @@ interface windows {
             window.windowPadding put style.windowPadding
             if (flags has Wf._ChildWindow && !(flags has (Wf.AlwaysUseWindowPadding or Wf._Popup)) && window.windowBorderSize == 0f)
                 window.windowPadding.put(0f,
-                                         if (flags has Wf.MenuBar) style.windowPadding.y else 0f)
+                        if (flags has Wf.MenuBar) style.windowPadding.y else 0f)
 
             // Lock menu offset so size calculation can use it as menu-bar windows need a minimum size.
             window.dc.menuBarOffset.x = (window.windowPadding.x max style.itemSpacing.x) max g.nextWindowData.menuBarOffsetMinVal.x
@@ -448,9 +448,9 @@ interface windows {
                 window.scrollbar.y = flags has Wf.AlwaysVerticalScrollbar || (neededSizeFromLastFrame.y > sizeYforScrollbars && flags hasnt Wf.NoScrollbar)
                 window.scrollbar.x = flags has Wf.AlwaysHorizontalScrollbar || ((neededSizeFromLastFrame.x > sizeXforScrollbars - if (window.scrollbar.y) style.scrollbarSize else 0f) && flags hasnt Wf.NoScrollbar && flags has Wf.HorizontalScrollbar)
                 if (window.scrollbar.x && !window.scrollbar.y) window.scrollbar.y =
-                    neededSizeFromLastFrame.y > sizeYforScrollbars && flags hasnt Wf.NoScrollbar
+                        neededSizeFromLastFrame.y > sizeYforScrollbars && flags hasnt Wf.NoScrollbar
                 window.scrollbarSizes.put(if (window.scrollbar.y) style.scrollbarSize else 0f,
-                                          if (window.scrollbar.x) style.scrollbarSize else 0f)
+                        if (window.scrollbar.x) style.scrollbarSize else 0f)
 
                 // Amend the partially filled window->DecorationXXX values.
                 window.decoOuterSizeX2 += window.scrollbarSizes.x
@@ -484,9 +484,9 @@ interface windows {
                 // - NavUpdatePageUpPageDown()
                 // - Scrollbar()
                 innerRect.put(minX = pos.x + decoOuterSizeX1,
-                              minY = pos.y + decoOuterSizeY1,
-                              maxX = pos.x + size.x - decoOuterSizeX2,
-                              maxY = pos.y + size.y - decoOuterSizeY2)
+                        minY = pos.y + decoOuterSizeY1,
+                        maxX = pos.x + size.x - decoOuterSizeX2,
+                        maxY = pos.y + size.y - decoOuterSizeY2)
 
                 // Inner clipping rectangle.
                 // Will extend a little bit outside the normal work region.
@@ -500,10 +500,10 @@ interface windows {
                     else -> window.windowBorderSize
                 }
                 innerClipRect.put(
-                    minX = floor(0.5f + innerRect.min.x + max(floor(windowPadding.x * 0.5f), windowBorderSize)),
-                    minY = floor(0.5f + innerRect.min.y + topBorderSize),
-                    maxX = floor(0.5f + innerRect.max.x - max(floor(windowPadding.x * 0.5f), windowBorderSize)),
-                    maxY = floor(0.5f + innerRect.max.y - windowBorderSize))
+                        minX = floor(0.5f + innerRect.min.x + max(floor(windowPadding.x * 0.5f), windowBorderSize)),
+                        minY = floor(0.5f + innerRect.min.y + topBorderSize),
+                        maxX = floor(0.5f + innerRect.max.x - max(floor(windowPadding.x * 0.5f), windowBorderSize)),
+                        maxY = floor(0.5f + innerRect.max.y - windowBorderSize))
                 innerClipRect clipWithFull hostRect
             }
 
@@ -583,7 +583,7 @@ interface windows {
                     else -> max(if (allowScrollbarY) window.contentSize.y else 0f, size.y - windowPadding.y * 2f - (decoOuterSizeY1 + decoOuterSizeY2))
                 }
                 workRect.min.put(floor(innerRect.min.x - scroll.x + max(windowPadding.x, windowBorderSize)),
-                                 floor(innerRect.min.y - scroll.y + max(windowPadding.y, windowBorderSize)))
+                        floor(innerRect.min.y - scroll.y + max(windowPadding.y, windowBorderSize)))
                 workRect.max.put(workRect.min.x + workRectSizeX, workRect.min.y + workRectSizeY)
                 parentWorkRect put workRect
 
@@ -593,9 +593,9 @@ interface windows {
                 // Used by:
                 // - Mouse wheel scrolling + many other things
                 contentRegionRect.min.put(pos.x - scroll.x + windowPadding.x + decoOuterSizeX1,
-                                          pos.y - scroll.y + windowPadding.y + decoOuterSizeY1)
+                        pos.y - scroll.y + windowPadding.y + decoOuterSizeY1)
                 contentRegionRect.max.put(contentRegionRect.min.x + if (contentSizeExplicit.x != 0f) contentSizeExplicit.x else size.x - windowPadding.x * 2f - (decoOuterSizeX1 + decoOuterSizeX2),
-                                          contentRegionRect.min.y + if (contentSizeExplicit.y != 0f) contentSizeExplicit.y else size.y - windowPadding.y * 2f - (decoOuterSizeY1 + decoOuterSizeY2))
+                        contentRegionRect.min.y + if (contentSizeExplicit.y != 0f) contentSizeExplicit.y else size.y - windowPadding.y * 2f - (decoOuterSizeY1 + decoOuterSizeY2))
 
                 // Setup drawing context
                 // (NB: That term "drawing context / DC" lost its meaning a long time ago. Initially was meant to hold transient data only. Nowadays difference between window-> and window->DC-> is dubious.)

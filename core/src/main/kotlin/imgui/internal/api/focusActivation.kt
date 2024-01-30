@@ -30,7 +30,7 @@ interface focusActivation {
         }
 
         val moveFlags = NavMoveFlag.Tabbing / NavMoveFlag.FocusApi / NavMoveFlag.NoSelect
-        val scrollFlags = ScrollFlag.KeepVisibleEdgeX / if(window.appearing) ScrollFlag.AlwaysCenterY else ScrollFlag.KeepVisibleEdgeY
+        val scrollFlags = ScrollFlag.KeepVisibleEdgeX / if (window.appearing) ScrollFlag.AlwaysCenterY else ScrollFlag.KeepVisibleEdgeY
         setNavWindow(window)
         navMoveRequestSubmit(Dir.None, Dir.Up, moveFlags, scrollFlags)
         navMoveRequestResolveWithLastItem(g.navMoveResultLocal)

@@ -31,7 +31,7 @@ interface childWindows {
      *     BeginPopup/EndPopup, etc. where the EndXXX call should only be called if the corresponding BeginXXX function
      *     returned true. Begin and BeginChild are the only odd ones out. Will be fixed in a future update.] */
     fun beginChild(strId: String, size: Vec2 = Vec2(), border: Boolean = false, flags: WindowFlags = none): Boolean =
-        beginChildEx(strId, currentWindow.getID(strId), size, border, flags)
+            beginChildEx(strId, currentWindow.getID(strId), size, border, flags)
 
     /** begin a scrolling region.
      *  size == 0f: use remaining window size

@@ -11,7 +11,10 @@ import imgui.ImGui.setNextWindowSizeConstraints
 import imgui.api.g
 import imgui.api.widgetsComboBox
 import imgui.internal.classes.Rect
-import imgui.internal.sections.*
+import imgui.internal.sections.ItemStatusFlag
+import imgui.internal.sections.LayoutType
+import imgui.internal.sections.NextWindowDataFlag
+import imgui.internal.sections.PopupPositionPolicy
 
 
 // Combos
@@ -114,12 +117,12 @@ internal interface combos {
         // FIXME: Using CursorMaxPos approximation instead of correct AABB which we will store in ImDrawCmd in the future
         val drawList = window.drawList
         if (window.dc.cursorMaxPos.x < previewData.previewRect.max.x && window.dc.cursorMaxPos.y < previewData.previewRect.max.y)
-        if (drawList.cmdBuffer.size > 1) { // Unlikely case that the PushClipRect() didn't create a command
-            val rect = drawList.cmdBuffer[drawList.cmdBuffer.size-2].clipRect
-            drawList.cmdBuffer[drawList.cmdBuffer.lastIndex].clipRect put rect
-            drawList._cmdHeader.clipRect put rect
-            drawList._tryMergeDrawCmds()
-        }
+            if (drawList.cmdBuffer.size > 1) { // Unlikely case that the PushClipRect() didn't create a command
+                val rect = drawList.cmdBuffer[drawList.cmdBuffer.size - 2].clipRect
+                drawList.cmdBuffer[drawList.cmdBuffer.lastIndex].clipRect put rect
+                drawList._cmdHeader.clipRect put rect
+                drawList._tryMergeDrawCmds()
+            }
         popClipRect()
         window.dc.cursorPos put previewData.backupCursorPos
         window.dc.cursorMaxPos = window.dc.cursorMaxPos max previewData.backupCursorMaxPos

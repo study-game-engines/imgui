@@ -22,13 +22,14 @@ object imm {
     val ImmSetCompositionWindow = lib.getFunctionAddress("ImmSetCompositionWindow")
     val ImmReleaseContext = lib.getFunctionAddress("ImmReleaseContext")
 
-    fun getContext(hwnd: HWND): Long{
-        return if(Platform.get() == Platform.WINDOWS && MINECRAFT_BEHAVIORS) {
+    fun getContext(hwnd: HWND): Long {
+        return if (Platform.get() == Platform.WINDOWS && MINECRAFT_BEHAVIORS) {
             JNI.callP(ImmCreateContext)
         } else {
             JNI.callPP(hwnd.L, ImmGetContext)
         }
     }
+
     fun setCandidateWindow(himc: HIMC, candForm: CANDIDATEFORM) = JNI.callPPI(himc.L, candForm.adr, ImmSetCandidateWindow)
     fun setCompositionWindow(himc: HIMC, compForm: COMPOSITIONFORM) = JNI.callPPI(himc.L, compForm.adr, ImmSetCompositionWindow)
     fun releaseContext(hwnd: HWND, himc: HIMC) = JNI.callPPI(hwnd.L, himc.L, ImmReleaseContext)

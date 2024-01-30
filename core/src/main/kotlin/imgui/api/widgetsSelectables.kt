@@ -132,7 +132,7 @@ interface widgetsSelectables {
         if (flags has Sf._SelectOnClick) buttonFlags /= Bf.PressedOnClick
         if (flags has Sf._SelectOnRelease) buttonFlags /= Bf.PressedOnRelease
         if (flags has Sf.AllowDoubleClick) buttonFlags /= Bf.PressedOnClickRelease or Bf.PressedOnDoubleClick
-        if (flags has Sf.AllowOverlap|| g.lastItemData.inFlags has If.AllowOverlap) buttonFlags /= Bf.AllowOverlap
+        if (flags has Sf.AllowOverlap || g.lastItemData.inFlags has If.AllowOverlap) buttonFlags /= Bf.AllowOverlap
 
         val wasSelected = selected
 

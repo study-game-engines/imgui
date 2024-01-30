@@ -1,11 +1,5 @@
 package imgui.stb_
 
-import kool.cap
-import kool.lim
-import kool.pos
-import unsigned.toUInt
-import java.nio.ByteBuffer
-
 /** private structure */
 class Buf(var data: UByteArray = UByteArray(0), val ptr: Int = 0) {
 

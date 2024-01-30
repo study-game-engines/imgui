@@ -92,7 +92,7 @@ object ShowDemoWindowPopups {
             treeNode("Popups") {
 
                 textWrapped("When a popup is active, it inhibits interacting with windows that are behind the popup. " +
-                            "Clicking outside the popup closes it.")
+                        "Clicking outside the popup closes it.")
 
                 val names = arrayOf("Bream", "Haddock", "Mackerel", "Pollock", "Tilefish")
 

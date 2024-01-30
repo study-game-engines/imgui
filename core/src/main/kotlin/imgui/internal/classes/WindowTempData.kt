@@ -2,10 +2,10 @@ package imgui.internal.classes
 
 import glm_.vec2.Vec2
 import imgui.ID
-import imgui.internal.sections.*
+import imgui.internal.sections.LayoutType
+import imgui.internal.sections.NavLayer
+import imgui.internal.sections.OldColumns
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 /** Temporary storage for one window(, that's the data which in theory we could ditch at the end of the frame, in practice we currently keep it for each window)
  *

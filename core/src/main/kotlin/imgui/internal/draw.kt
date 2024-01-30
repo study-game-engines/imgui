@@ -2,17 +2,13 @@
 
 package imgui.internal
 
-import glm_.asHexString
 import glm_.vec2.Vec2
 import glm_.vec4.Vec4
-import imgui.L
 import imgui.TextureID
 import imgui.classes.DrawList
-import imgui.logger
 import imgui.resize
 import kool.*
 import java.util.*
-import java.util.logging.Level
 
 /** ImDrawCallback: Draw callbacks for advanced uses [configurable type: override in imconfig.h]
  *  NB: You most likely do NOT need to use draw callbacks just to create your own widget or customized UI rendering,
@@ -203,7 +199,7 @@ class DrawListSplitter {
     infix fun merge(drawList: DrawList) {
 
         // Note that we never use or rely on _Channels.Size because it is merely a buffer that we never shrink back to 0 to keep all sub-buffers ready for use.
-        if (_count <= 1) 
+        if (_count <= 1)
             return
 
         setCurrentChannel(drawList, 0)

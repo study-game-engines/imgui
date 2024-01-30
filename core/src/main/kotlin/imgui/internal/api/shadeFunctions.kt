@@ -15,9 +15,9 @@ internal interface shadeFunctions {
 
     /** Generic linear color gradient, write to RGB fields, leave A untouched.  */
     fun DrawList.shadeVertsLinearColorGradientKeepAlpha(
-        vertStart: Int, vertEnd: Int, gradientP0: Vec2,
-        gradientP1: Vec2, col0: Int, col1: Int,
-                                              ) {
+            vertStart: Int, vertEnd: Int, gradientP0: Vec2,
+            gradientP1: Vec2, col0: Int, col1: Int,
+    ) {
         val gradientExtent = gradientP1 - gradientP0
         val gradientInvLength2 = 1f / gradientExtent.lengthSqr
         val col0R = (col0 ushr COL32_R_SHIFT) and 0xFF
@@ -46,8 +46,8 @@ internal interface shadeFunctions {
         val size = b - a
         val uvSize = uvB - uvA
         val scale = Vec2(
-            if (size.x != 0f) uvSize.x / size.x else 0f,
-            if (size.y != 0f) uvSize.y / size.y else 0f)
+                if (size.x != 0f) uvSize.x / size.x else 0f,
+                if (size.y != 0f) uvSize.y / size.y else 0f)
         if (clamp) {
             val min = uvA min uvB
             val max = uvA max uvB

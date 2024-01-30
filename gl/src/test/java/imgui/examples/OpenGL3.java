@@ -38,7 +38,6 @@ public class OpenGL3 {
     private ImGui imgui = ImGui.INSTANCE;
     private IO io;
 
-
     private float[] f = {0f};
     private Vec4 clearColor = new Vec4(0.45f, 0.55f, 0.6f, 1f);
     // Java users can use both a MutableReference or a Boolean Array
@@ -48,10 +47,6 @@ public class OpenGL3 {
 
     private ImplGlfw implGlfw;
     private ImplGL3 implGl3;
-
-    public static void main(String[] args) {
-        new OpenGL3();
-    }
 
     private OpenGL3() {
 
@@ -136,6 +131,10 @@ public class OpenGL3 {
 
         window.destroy();
         glfw.terminate();
+    }
+
+    public static void main(String[] args) {
+        new OpenGL3();
     }
 
     private void mainLoop() {

@@ -32,6 +32,7 @@ class WindowSettings(val name: String = "") {
 class SettingsHandler {
     /** Short description stored in .ini file. Disallowed characters: '[' ']' */
     var typeName = ""
+
     /** == ImHashStr(TypeName) */
     var typeHash: ID = 0
 

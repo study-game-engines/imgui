@@ -63,7 +63,7 @@ interface widgetsMenus {
         // We remove 1 worth of rounding to Max.x to that text in long menus and small windows don't tend to display over the lower-right rounded area, which looks particularly glitchy.
         val barRect = window.menuBarRect()
         val clipRect = Rect(round(barRect.min.x + window.windowBorderSize), round(barRect.min.y + window.windowBorderSize),
-                            round(barRect.min.x max (barRect.max.x - (window.windowRounding max window.windowBorderSize))), round(barRect.max.y))
+                round(barRect.min.x max (barRect.max.x - (window.windowRounding max window.windowBorderSize))), round(barRect.max.y))
         clipRect clipWith window.outerRectClipped
         pushClipRect(clipRect.min, clipRect.max, false)
 
@@ -175,16 +175,16 @@ interface widgetsMenus {
     }
 
     fun menuItem(label: String, shortcut: String = "", selected: Boolean = false, enabled: Boolean = true): Boolean =
-        menuItemEx(label, "", shortcut, selected, enabled)
+            menuItemEx(label, "", shortcut, selected, enabled)
 
     /** return true when activated + toggle (*p_selected) if p_selected != NULL */
     fun menuItem(label: String, shortcut: String = "", pSelected: BooleanArray?, enabled: Boolean = true): Boolean =
-        if (menuItemEx(label, "", shortcut, pSelected?.get(0) == true, enabled)) {
-            pSelected?.let { it[0] = !it[0] }
-            true
-        } else false
+            if (menuItemEx(label, "", shortcut, pSelected?.get(0) == true, enabled)) {
+                pSelected?.let { it[0] = !it[0] }
+                true
+            } else false
 
     fun menuItem(label: String, shortcut: String = "", selected: KMutableProperty0<Boolean>?, enabled: Boolean = true): Boolean =
-        menuItemEx(label, "", shortcut, selected?.get() == true, enabled)
-                .also { if (it) selected?.apply { set(!get()) } }
+            menuItemEx(label, "", shortcut, selected?.get() == true, enabled)
+                    .also { if (it) selected?.apply { set(!get()) } }
 }

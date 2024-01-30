@@ -82,7 +82,7 @@ interface widgetsInputWithKeyboard {
             input(label, v mutablePropertyAt 0, step, stepFast, format, flags)
 
     fun input(label: String, v: KMutableProperty0<Float>, step: Float = 0f, stepFast: Float = 0f, format: String = "%.3f", flags: InputTextSingleFlags = none): Boolean =
-        input(label, v, step.takeIf { it > 0f }, stepFast.takeIf { it > 0f }, format, flags / Itf.CharsScientific)
+            input(label, v, step.takeIf { it > 0f }, stepFast.takeIf { it > 0f }, format, flags / Itf.CharsScientific)
 
     fun input2(label: String, v: FloatArray, format: String = "%.3f", flags: InputTextSingleFlags = none): Boolean = inputN(label, 2, null, null, format, flags, v::mutablePropertyAt)
 

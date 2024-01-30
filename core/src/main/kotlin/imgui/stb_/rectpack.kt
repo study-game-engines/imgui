@@ -1,11 +1,5 @@
 package imgui.stb_
 
-import glm_.bool
-import glm_.i
-import imgui.DEBUG
-import java.util.*
-import kotlin.Comparator
-
 // [DEAR IMGUI]
 // This is a slightly modified version of stb_rect_pack.h 1.01.
 // Grep for [DEAR IMGUI] to find the changes.
@@ -106,9 +100,6 @@ object rectpack {
     // be visible so you can handle the memory allocations for them
 
 
-
-
-
     const val INIT_skyline = 1
 
     class FindResult {
@@ -117,7 +108,6 @@ object rectpack {
         var prevLink: Ptr<Ptr<Node>>? = null
         override fun toString() = "x=$x y=$y prevLink=$prevLink"
     }
-
 
 
     val rectHeightCompare = Comparator<Rect> { a, b ->

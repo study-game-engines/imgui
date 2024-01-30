@@ -123,7 +123,7 @@ object CustomRendering {
                 val cornersTlBr = DrawFlag.RoundCornersTopLeft or DrawFlag.RoundCornersBottomRight
                 val rounding = sz / 5f
                 val circleSegments = if (circleSegmentsOverride) circleSegmentsOverrideV else 0
-                val curveSegments = if(curveSegmentsOverride) curveSegmentsOverrideV else 0
+                val curveSegments = if (curveSegmentsOverride) curveSegmentsOverrideV else 0
                 var (x, y) = p + 4f
                 for (n in 0 until 2) {
                     // First line uses a thickness of 1.0f, second line uses the configurable thickness

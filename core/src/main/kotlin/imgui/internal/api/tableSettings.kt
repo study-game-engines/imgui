@@ -165,8 +165,8 @@ interface tableSettings {
 
     /** Find existing settings */
     fun tableSettingsFindByID(id: ID): TableSettings? =
-        // FIXME-OPT: Might want to store a lookup map for this?
-        g.settingsTables.find { it.id == id }
+            // FIXME-OPT: Might want to store a lookup map for this?
+            g.settingsTables.find { it.id == id }
 }
 
 fun tableSettingsHandler_ClearAll(ctx: Context, handler: SettingsHandler) {

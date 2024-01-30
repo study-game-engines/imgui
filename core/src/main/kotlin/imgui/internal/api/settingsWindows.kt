@@ -14,7 +14,7 @@ import imgui.statics.initOrLoadWindowSettings
 interface settingsWindows {
 
     fun createNewWindowSettings(name_: String): WindowSettings {
-        val name = when(g.io.configDebugIniSettings) {
+        val name = when (g.io.configDebugIniSettings) {
             // Skip to the "###" marker if any. We don't skip past to match the behavior of GetID()
             // Preserve the full string when ConfigDebugVerboseIniSettings is set to make .ini inspection easier.
             false -> name_.removePrefix("###")

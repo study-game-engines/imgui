@@ -15,7 +15,6 @@ import imgui.ImGui.setNextWindowSize
 import imgui.ImGui.text
 import imgui.ImGui.textEx
 import imgui.StyleVar
-import imgui.classes.ListClipper
 import imgui.classes.listClipper
 import uno.kotlin.NUL
 import kotlin.reflect.KMutableProperty0
@@ -37,9 +36,9 @@ object LongText {
 
         text("Printing unusually long amount of text.")
         combo("Test type", ::testType,
-              "Single call to TextUnformatted()" + NUL +
-              "Multiple calls to Text(), clipped" + NUL +
-              "Multiple calls to Text(), not clipped (slow)" + NUL)
+                "Single call to TextUnformatted()" + NUL +
+                        "Multiple calls to Text(), clipped" + NUL +
+                        "Multiple calls to Text(), not clipped (slow)" + NUL)
         text("Buffer contents: %d lines, %d bytes", lines, log.length)
         if (button("Clear")) log.clear().also { lines = 0 }
         sameLine()

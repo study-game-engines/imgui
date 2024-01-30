@@ -64,7 +64,7 @@ internal interface scrolling {
     }
 
     fun scrollToRect(window: Window, rect: Rect, flags: ScrollFlags = none): Vec2 =
-        scrollToRectEx(window, rect, flags)
+            scrollToRectEx(window, rect, flags)
 
     fun scrollToRectEx(window: Window, itemRect: Rect, flags_: ScrollFlags = none): Vec2 {
 
@@ -133,17 +133,17 @@ internal interface scrolling {
     /** Scroll to keep newly navigated item fully into view */
     infix fun Window.scrollToBringRectIntoView(itemRect: Rect): Vec2 {
         val windowRect = Rect(innerRect.min - 1,
-                              innerRect.max + 1) //GetOverlayDrawList(window)->AddRect(window->Pos + window_rect_rel.Min, window->Pos + window_rect_rel.Max, IM_COL32_WHITE); // [DEBUG]
+                innerRect.max + 1) //GetOverlayDrawList(window)->AddRect(window->Pos + window_rect_rel.Min, window->Pos + window_rect_rel.Max, IM_COL32_WHITE); // [DEBUG]
 
         val deltaScroll = Vec2()
         if (itemRect !in windowRect) {
             if (scrollbar.x && itemRect.min.x < windowRect.min.x) setScrollFromPosX(itemRect.min.x - pos.x - ImGui.style.itemSpacing.x,
-                                                                                    0f)
+                    0f)
             else if (scrollbar.x && itemRect.max.x >= windowRect.max.x) setScrollFromPosX(itemRect.max.x - pos.x + ImGui.style.itemSpacing.x,
-                                                                                          1f)
+                    1f)
             if (itemRect.min.y < windowRect.min.y) setScrollFromPosY(itemRect.min.y - pos.y - ImGui.style.itemSpacing.y, 0f)
             else if (itemRect.max.y >= windowRect.max.y) setScrollFromPosY(itemRect.max.y - pos.y + ImGui.style.itemSpacing.y,
-                                                                           1f)
+                    1f)
 
             val nextScroll = calcNextScrollFromScrollTargetAndClamp()
             deltaScroll put (nextScroll - scroll)
@@ -151,7 +151,7 @@ internal interface scrolling {
 
         // Also scroll parent window to keep us into view if necessary
         if (flags has WindowFlag._ChildWindow) deltaScroll += parentWindow!! scrollToBringRectIntoView Rect(itemRect.min - deltaScroll,
-                                                                                                            itemRect.max - deltaScroll)
+                itemRect.max - deltaScroll)
 
         return deltaScroll
     }

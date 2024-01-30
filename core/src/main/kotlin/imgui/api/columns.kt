@@ -15,13 +15,13 @@ import imgui.ImGui.popItemWidth
 import imgui.ImGui.pushItemWidth
 import imgui.ImGui.setWindowClipRectBeforeSetChannel
 import imgui.ImGui.style
-import imgui.none
 import imgui.has
 import imgui.hasnt
 import imgui.internal.floor
 import imgui.internal.lerp
-import imgui.internal.sections.OldColumns
 import imgui.internal.sections.OldColumnFlags
+import imgui.internal.sections.OldColumns
+import imgui.none
 import kotlin.math.max
 import kotlin.math.min
 import imgui.internal.sections.OldColumnsFlag as Cf

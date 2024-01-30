@@ -2,7 +2,6 @@
 
 package imgui.demo
 
-import glm_.has
 import glm_.*
 import glm_.func.sin
 import glm_.vec2.Vec2
@@ -305,9 +304,9 @@ object ShowDemoWindowWidgets {
                         sameLine()
                     withID(i) {
                         withStyleColor(
-                            Col.Button, Color.hsv(i / 7f, 0.6f, 0.6f),
-                            Col.ButtonHovered, Color.hsv(i / 7f, 0.7f, 0.7f),
-                            Col.ButtonActive, Color.hsv(i / 7f, 0.8f, 0.8f)) {
+                                Col.Button, Color.hsv(i / 7f, 0.6f, 0.6f),
+                                Col.ButtonHovered, Color.hsv(i / 7f, 0.7f, 0.7f),
+                                Col.ButtonActive, Color.hsv(i / 7f, 0.8f, 0.8f)) {
                             button("Click")
                         }
                     }
@@ -459,7 +458,7 @@ object ShowDemoWindowWidgets {
                 // - Full-form (any contents):    if (IsItemHovered(...) && BeginTooltip()) { Text("Hello"); EndTooltip(); }
 
                 helpMarker("Tooltip are typically created by using a IsItemHovered() + SetTooltip() sequence.\n\n" +
-                           "We provide a helper SetItemTooltip() function to perform the two with standards flags.")
+                        "We provide a helper SetItemTooltip() function to perform the two with standards flags.")
 
                 val sz = Vec2(-Float.MIN_VALUE, 0f)
 
@@ -647,8 +646,8 @@ object ShowDemoWindowWidgets {
                 treeNode("Word Wrapping") {
                     // Using shortcut. You can use PushTextWrapPos()/PopTextWrapPos() for more flexibility.
                     textWrapped(
-                        "This text should automatically wrap on the edge of the window. The current implementation " +
-                        "for text wrapping follows simple rules suitable for English and possibly other languages.")
+                            "This text should automatically wrap on the edge of the window. The current implementation " +
+                                    "for text wrapping follows simple rules suitable for English and possibly other languages.")
                     spacing()
 
                     slider("Wrap width", ::wrapWidth, -20f, 600f, "%.0f")
@@ -683,9 +682,9 @@ object ShowDemoWindowWidgets {
                     // Note that characters values are preserved even by InputText() if the font cannot be displayed,
                     // so you can safely copy & paste garbled characters into another application.
                     textWrapped(
-                        "CJK text will only appear if the font was loaded with the appropriate CJK character ranges." +
-                        "Call io.Fonts->AddFontFromFileTTF() manually to load extra character ranges." +
-                        "Read docs/FONTS.txt for details.")
+                            "CJK text will only appear if the font was loaded with the appropriate CJK character ranges." +
+                                    "Call io.Fonts->AddFontFromFileTTF() manually to load extra character ranges." +
+                                    "Read docs/FONTS.txt for details.")
                     text("Hiragana: ${utf8(0xe3, 0x81, 0x8b, 0xe3, 0x81, 0x8d, 0xe3, 0x81, 0x8f, 0xe3, 0x81, 0x91, 0xe3, 0x81, 0x93)} (kakikukeko)") // Normally we would use u8"blah blah" with the proper characters directly in the string.
                     text("Kanjis: ${utf8(0xe6, 0x97, 0xa5, 0xe6, 0x9c, 0xac, 0xe8, 0xaa, 0x9e)} (nihongo)")
                     inputText("UTF-8 input", buf)
@@ -700,9 +699,9 @@ object ShowDemoWindowWidgets {
         operator fun invoke() {
             treeNode("Images") {
                 textWrapped(
-                    "Below we are displaying the font texture (which is the only texture we have access to in this demo). " +
-                    "Use the 'ImTextureID' type as storage to pass pointers or identifier to your own texture data. " +
-                    "Hover the texture for a zoomed view!")
+                        "Below we are displaying the font texture (which is the only texture we have access to in this demo). " +
+                                "Use the 'ImTextureID' type as storage to pass pointers or identifier to your own texture data. " +
+                                "Hover the texture for a zoomed view!")
 
                 // Below we are displaying the font texture because it is the only texture we have access to inside the demo!
                 // Remember that ImTextureID is just storage for whatever you want it to be. It is essentially a value that
@@ -882,10 +881,10 @@ object ShowDemoWindowWidgets {
         val selected1 = BooleanArray(3)
         val selected2 = BooleanArray(10)
         val selected3 = arrayOf(
-            intArrayOf(1, 0, 0, 0),
-            intArrayOf(0, 1, 0, 0),
-            intArrayOf(0, 0, 1, 0),
-            intArrayOf(0, 0, 0, 1))
+                intArrayOf(1, 0, 0, 0),
+                intArrayOf(0, 1, 0, 0),
+                intArrayOf(0, 0, 1, 0),
+                intArrayOf(0, 0, 0, 1))
         val selected4 = booleanArrayOf(true, false, true, false, true, false, true, false, true)
         operator fun invoke() {
             treeNode("Selectables") {
@@ -1365,9 +1364,9 @@ object ShowDemoWindowWidgets {
 
                 text("Color button with Picker:")
                 sameLine(); helpMarker(
-                "With the ImGuiColorEditFlags_NoInputs flag you can hide all the slider/text inputs.\n" +
-                "With the ImGuiColorEditFlags_NoLabel flag you can pass a non-empty label which will only " +
-                "be used for the tooltip and picker popup.")
+                    "With the ImGuiColorEditFlags_NoInputs flag you can hide all the slider/text inputs.\n" +
+                            "With the ImGuiColorEditFlags_NoLabel flag you can pass a non-empty label which will only " +
+                            "be used for the tooltip and picker popup.")
                 colorEdit4("MyColor##3", color, Cef.NoInputs or Cef.NoLabel or miscFlags)
 
                 text("Color button with Custom Picker Popup:")
@@ -1441,9 +1440,9 @@ object ShowDemoWindowWidgets {
                 }
                 combo("Display Mode", ::displayMode, "Auto/Current\u0000None\u0000RGB Only\u0000HSV Only\u0000Hex Only\u0000")
                 sameLine(); helpMarker(
-                "ColorEdit defaults to displaying RGB inputs if you don't specify a display mode, " +
-                "but the user can change it with a right-click on those inputs.\n\nColorPicker defaults to displaying RGB+HSV+Hex " +
-                "if you don't specify a display mode.\n\nYou can change the defaults using SetColorEditOptions().")
+                    "ColorEdit defaults to displaying RGB inputs if you don't specify a display mode, " +
+                            "but the user can change it with a right-click on those inputs.\n\nColorPicker defaults to displaying RGB+HSV+Hex " +
+                            "if you don't specify a display mode.\n\nYou can change the defaults using SetColorEditOptions().")
                 sameLine(); helpMarker("When not specified explicitly (Auto/Current mode), user can right-click the picker to change mode.")
                 var flags = miscFlags
                 if (!alpha) flags /= Cef.NoAlpha // This is by default if you call ColorPicker3() instead of ColorPicker4()
@@ -1459,9 +1458,9 @@ object ShowDemoWindowWidgets {
 
                 text("Set defaults in code:")
                 sameLine(); helpMarker("SetColorEditOptions() is designed to allow you to set boot-time default.\n" +
-                                       "We don't have Push/Pop functions because you can force options on a per-widget basis if needed," +
-                                       "and the user can change non-forced ones with the options menu.\nWe don't have a getter to avoid" +
-                                       "encouraging you to persistently save values that aren't forward-compatible.")
+                    "We don't have Push/Pop functions because you can force options on a per-widget basis if needed," +
+                    "and the user can change non-forced ones with the options menu.\nWe don't have a getter to avoid" +
+                    "encouraging you to persistently save values that aren't forward-compatible.")
                 if (button("Default: Uint8 + HSV + Hue Bar"))
                     setColorEditOptions(Cef.Uint8 or Cef.DisplayHSV or Cef.PickerHueBar)
                 if (button("Default: Float + HDR + Hue Wheel"))
@@ -1480,9 +1479,9 @@ object ShowDemoWindowWidgets {
                 spacing()
                 text("HSV encoded colors")
                 sameLine(); helpMarker(
-                "By default, colors are given to ColorEdit and ColorPicker in RGB, but ImGuiColorEditFlags_InputHSV" +
-                "allows you to store colors as HSV and pass them to ColorEdit and ColorPicker as HSV. This comes with the" +
-                "added benefit that you can manipulate hue values with the picker even when saturation or value are zero.")
+                    "By default, colors are given to ColorEdit and ColorPicker in RGB, but ImGuiColorEditFlags_InputHSV" +
+                            "allows you to store colors as HSV and pass them to ColorEdit and ColorPicker as HSV. This comes with the" +
+                            "added benefit that you can manipulate hue values with the picker even when saturation or value are zero.")
                 text("Color widget with InputHSV:")
                 colorEdit4("HSV shown as RGB##1", colorHsv, Cef.DisplayRGB or Cef.InputHSV or Cef.Float)
                 colorEdit4("HSV shown as HSV##1", colorHsv, Cef.DisplayHSV or Cef.InputHSV or Cef.Float)
@@ -1755,10 +1754,10 @@ object ShowDemoWindowWidgets {
                             if (i > 0) sameLine()
                             withID(i) {
                                 withStyleColor(
-                                    Col.FrameBg, Color.hsv(i / 7f, 0.5f, 0.5f),
-                                    Col.FrameBgHovered, Color.hsv(i / 7f, 0.6f, 0.5f),
-                                    Col.FrameBgActive, Color.hsv(i / 7f, 0.7f, 0.5f),
-                                    Col.SliderGrab, Color.hsv(i / 7f, 0.9f, 0.9f)) {
+                                        Col.FrameBg, Color.hsv(i / 7f, 0.5f, 0.5f),
+                                        Col.FrameBgHovered, Color.hsv(i / 7f, 0.6f, 0.5f),
+                                        Col.FrameBgActive, Color.hsv(i / 7f, 0.7f, 0.5f),
+                                        Col.SliderGrab, Color.hsv(i / 7f, 0.9f, 0.9f)) {
 
                                     vSlider("##v", Vec2(18, 160), values mutablePropertyAt i, 0f, 1f, "")
                                     if (isItemActive || isItemHovered()) setTooltip("%.3f", values[i])
@@ -1874,8 +1873,8 @@ object ShowDemoWindowWidgets {
                 treeNode("Drag to reorder items (simple)") {
                     // Simple reordering
                     helpMarker(
-                        "We don't use the drag and drop api at all here! " +
-                        "Instead we query when the item is held but not hovered, and order items accordingly.")
+                            "We don't use the drag and drop api at all here! " +
+                                    "Instead we query when the item is held but not hovered, and order items accordingly.")
                     itemNames.forEachIndexed { n, item ->
                         selectable(item)
 
@@ -1905,8 +1904,8 @@ object ShowDemoWindowWidgets {
             treeNode("Querying Item Status (Edited/Active/Hovered etc.)") {
                 // Select an item type
                 val itemNames = arrayOf(
-                    "Text", "Button", "Button (w/ repeat)", "Checkbox", "SliderFloat", "InputText", "InputTextMultiline", "InputFloat",
-                    "InputFloat3", "ColorEdit4", "Selectable", "MenuItem", "TreeNode", "TreeNode (w/ double-click)", "Combo", "ListBox")
+                        "Text", "Button", "Button (w/ repeat)", "Checkbox", "SliderFloat", "InputText", "InputTextMultiline", "InputFloat",
+                        "InputFloat3", "ColorEdit4", "Selectable", "MenuItem", "TreeNode", "TreeNode (w/ double-click)", "Combo", "ListBox")
                 combo("Item Type", ::itemType, itemNames, itemNames.size)
                 sameLine()
                 helpMarker("Testing how various types of items are interacting with the IsItemXXX functions. Note that the bool return value of most ImGui function is generally equivalent to calling ImGui::IsItemHovered().")
@@ -1967,11 +1966,11 @@ object ShowDemoWindowWidgets {
                     GetItemRectMax() = (%.1f, %.1f)
                     GetItemRectSize() = (%.1f, %.1f)""".trimIndent(), itemRectMin.x, itemRectMin.y, itemRectMax.x, itemRectMax.y, itemRectSize.x, itemRectSize.y)
                 bulletText("with Hovering Delay or Stationary test:\n" +
-                           "IsItemHovered() = = ${hoveredDelayNone.i}\n" +
-                           "IsItemHovered(_Stationary) = ${hoveredDelayStationary.i}\n" +
-                           "IsItemHovered(_DelayShort) = ${hoveredDelayShort.i}\n" +
-                           "IsItemHovered(_DelayNormal) = ${hoveredDelayNormal.i}\n" +
-                           "IsItemHovered(_Tooltip) = ${hoveredDelayTooltip.i}")
+                        "IsItemHovered() = = ${hoveredDelayNone.i}\n" +
+                        "IsItemHovered(_Stationary) = ${hoveredDelayStationary.i}\n" +
+                        "IsItemHovered(_DelayShort) = ${hoveredDelayShort.i}\n" +
+                        "IsItemHovered(_DelayNormal) = ${hoveredDelayNormal.i}\n" +
+                        "IsItemHovered(_Tooltip) = ${hoveredDelayTooltip.i}")
 
                 if (itemDisabled)
                     endDisabled()
@@ -1996,27 +1995,27 @@ object ShowDemoWindowWidgets {
 
                 // Testing IsWindowFocused() function with its various flags.
                 bulletText("isWindowFocused() = ${isWindowFocused().i}\n" +
-                           "isWindowFocused(_ChildWindows) = ${isWindowFocused(FocusedFlag.ChildWindows).i}\n" +
-                           "IsWindowFocused(_ChildWindows|_NoPopupHierarchy) = ${isWindowFocused(FocusedFlag.ChildWindows or FocusedFlag.NoPopupHierarchy).i}\n" +
-                           "isWindowFocused(_ChildWindows|_RootWindow) = ${isWindowFocused(FocusedFlag.ChildWindows or FocusedFlag.RootWindow).i}\n" +
-                           "IsWindowFocused(_ChildWindows|_RootWindow|_NoPopupHierarchy) = ${isWindowFocused(FocusedFlag.ChildWindows or FocusedFlag.RootWindow or FocusedFlag.NoPopupHierarchy).i}\n" +
-                           "isWindowFocused(_RootWindow) = ${isWindowFocused(FocusedFlag.RootWindow).i}\n" +
-                           "IsWindowFocused(_RootWindow|_NoPopupHierarchy) = ${isWindowFocused(FocusedFlag.RootWindow or FocusedFlag.NoPopupHierarchy).i}\n" +
-                           "isWindowFocused(_AnyWindow) = ${isWindowFocused(FocusedFlag.AnyWindow).i}\n")
+                        "isWindowFocused(_ChildWindows) = ${isWindowFocused(FocusedFlag.ChildWindows).i}\n" +
+                        "IsWindowFocused(_ChildWindows|_NoPopupHierarchy) = ${isWindowFocused(FocusedFlag.ChildWindows or FocusedFlag.NoPopupHierarchy).i}\n" +
+                        "isWindowFocused(_ChildWindows|_RootWindow) = ${isWindowFocused(FocusedFlag.ChildWindows or FocusedFlag.RootWindow).i}\n" +
+                        "IsWindowFocused(_ChildWindows|_RootWindow|_NoPopupHierarchy) = ${isWindowFocused(FocusedFlag.ChildWindows or FocusedFlag.RootWindow or FocusedFlag.NoPopupHierarchy).i}\n" +
+                        "isWindowFocused(_RootWindow) = ${isWindowFocused(FocusedFlag.RootWindow).i}\n" +
+                        "IsWindowFocused(_RootWindow|_NoPopupHierarchy) = ${isWindowFocused(FocusedFlag.RootWindow or FocusedFlag.NoPopupHierarchy).i}\n" +
+                        "isWindowFocused(_AnyWindow) = ${isWindowFocused(FocusedFlag.AnyWindow).i}\n")
 
                 // Testing IsWindowHovered() function with its various flags.
                 bulletText("isWindowHovered() = ${isWindowHovered()}\n" +
-                           "isWindowHovered(_AllowWhenBlockedByPopup) = ${isWindowHovered(HoveredFlag.AllowWhenBlockedByPopup).i}\n" +
-                           "isWindowHovered(_AllowWhenBlockedByActiveItem) = ${isWindowHovered(HoveredFlag.AllowWhenBlockedByActiveItem).i}\n" +
-                           "isWindowHovered(_ChildWindows) = ${isWindowHovered(HoveredFlag.ChildWindows).i}\n" +
-                           "IsWindowHovered(_ChildWindows|_NoPopupHierarchy) = ${isWindowHovered(HoveredFlag.ChildWindows or HoveredFlag.NoPopupHierarchy).i}\n" +
-                           "isWindowHovered(_ChildWindows|_RootWindow) = ${isWindowHovered(HoveredFlag.ChildWindows or HoveredFlag.RootWindow).i}\n" +
-                           "isWindowHovered(_ChildWindows|_RootWindow|_NoPopupHierarchy) = ${isWindowHovered(HoveredFlag.ChildWindows or HoveredFlag.RootWindow or HoveredFlag.NoPopupHierarchy).i}\n" +
-                           "isWindowHovered(_RootWindow) = ${isWindowHovered(HoveredFlag.RootWindow).i}\n" +
-                           "IsWindowHovered(_RootWindow|_NoPopupHierarchy) = ${isWindowHovered(HoveredFlag.RootWindow or HoveredFlag.NoPopupHierarchy).i}\n" +
-                           "IsWindowHovered(_ChildWindows|_AllowWhenBlockedByPopup) = ${isWindowHovered(HoveredFlag.ChildWindows or HoveredFlag.AllowWhenBlockedByPopup).i}\n" +
-                           "isWindowHovered(_AnyWindow) = ${isWindowHovered(HoveredFlag.AnyWindow).i}\n" +
-                           "IsWindowHovered(_Stationary) = ${isWindowHovered(HoveredFlag.Stationary).i}\n")
+                        "isWindowHovered(_AllowWhenBlockedByPopup) = ${isWindowHovered(HoveredFlag.AllowWhenBlockedByPopup).i}\n" +
+                        "isWindowHovered(_AllowWhenBlockedByActiveItem) = ${isWindowHovered(HoveredFlag.AllowWhenBlockedByActiveItem).i}\n" +
+                        "isWindowHovered(_ChildWindows) = ${isWindowHovered(HoveredFlag.ChildWindows).i}\n" +
+                        "IsWindowHovered(_ChildWindows|_NoPopupHierarchy) = ${isWindowHovered(HoveredFlag.ChildWindows or HoveredFlag.NoPopupHierarchy).i}\n" +
+                        "isWindowHovered(_ChildWindows|_RootWindow) = ${isWindowHovered(HoveredFlag.ChildWindows or HoveredFlag.RootWindow).i}\n" +
+                        "isWindowHovered(_ChildWindows|_RootWindow|_NoPopupHierarchy) = ${isWindowHovered(HoveredFlag.ChildWindows or HoveredFlag.RootWindow or HoveredFlag.NoPopupHierarchy).i}\n" +
+                        "isWindowHovered(_RootWindow) = ${isWindowHovered(HoveredFlag.RootWindow).i}\n" +
+                        "IsWindowHovered(_RootWindow|_NoPopupHierarchy) = ${isWindowHovered(HoveredFlag.RootWindow or HoveredFlag.NoPopupHierarchy).i}\n" +
+                        "IsWindowHovered(_ChildWindows|_AllowWhenBlockedByPopup) = ${isWindowHovered(HoveredFlag.ChildWindows or HoveredFlag.AllowWhenBlockedByPopup).i}\n" +
+                        "isWindowHovered(_AnyWindow) = ${isWindowHovered(HoveredFlag.AnyWindow).i}\n" +
+                        "IsWindowHovered(_Stationary) = ${isWindowHovered(HoveredFlag.Stationary).i}\n")
 
                 beginChild("child", Vec2(0, 50), true)
                 text("This is another child window for testing the _ChildWindows flag.")
@@ -2034,8 +2033,8 @@ object ShowDemoWindowWidgets {
                         endPopup()
                     }
                     text(
-                        "IsItemHovered() after begin = ${isItemHovered()} (== is title bar hovered)\n" +
-                        "IsItemActive() after begin = $isItemActive (== is window being clicked/moved)")
+                            "IsItemHovered() after begin = ${isItemHovered()} (== is title bar hovered)\n" +
+                                    "IsItemActive() after begin = $isItemActive (== is window being clicked/moved)")
                     end()
                 }
             }

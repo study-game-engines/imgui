@@ -25,7 +25,7 @@ internal interface disabling {
             g.style.alpha *= g.style.disabledAlpha // PushStyleVar(ImGuiStyleVar_Alpha, g.Style.Alpha * g.Style.DisabledAlpha);
         }
         if (wasDisabled || disabled)
-        g.currentItemFlags /= ItemFlag.Disabled
+            g.currentItemFlags /= ItemFlag.Disabled
         g.itemFlagsStack += g.currentItemFlags
         g.disabledStackSize++
     }

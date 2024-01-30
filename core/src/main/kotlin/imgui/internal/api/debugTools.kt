@@ -1,12 +1,14 @@
 package imgui.internal.api
 
-import glm_.*
+import glm_.L
+import glm_.d
+import glm_.i
+import glm_.min
 import glm_.vec2.Vec2
 import glm_.vec4.Vec4
 import imgui.*
 import imgui.ImGui.beginDisabled
 import imgui.ImGui.beginItemTooltip
-import imgui.ImGui.beginTooltip
 import imgui.ImGui.boundSettings
 import imgui.ImGui.bullet
 import imgui.ImGui.bulletText
@@ -26,11 +28,9 @@ import imgui.ImGui.getColumnName
 import imgui.ImGui.getForegroundDrawList
 import imgui.ImGui.getOffsetFrom
 import imgui.ImGui.getStyleColorVec4
-import imgui.ImGui.io
 import imgui.ImGui.isDown
 import imgui.ImGui.isItemHovered
 import imgui.ImGui.isItemVisible
-import imgui.ImGui.isMouseHoveringRect
 import imgui.ImGui.itemRectMax
 import imgui.ImGui.itemRectMin
 import imgui.ImGui.popFocusScope
@@ -40,7 +40,6 @@ import imgui.ImGui.popItemFlag
 import imgui.ImGui.popStyleColor
 import imgui.ImGui.popStyleVar
 import imgui.ImGui.popTextWrapPos
-import imgui.ImGui.pushFont
 import imgui.ImGui.pushID
 import imgui.ImGui.pushStyleColor
 import imgui.ImGui.pushStyleVar
@@ -50,7 +49,6 @@ import imgui.ImGui.sameLine
 import imgui.ImGui.selectable
 import imgui.ImGui.separator
 import imgui.ImGui.setNextItemOpen
-import imgui.ImGui.setNextItemWidth
 import imgui.ImGui.smallButton
 import imgui.ImGui.text
 import imgui.ImGui.textColored
@@ -59,10 +57,8 @@ import imgui.ImGui.textUnformatted
 import imgui.ImGui.treeNode
 import imgui.ImGui.treeNodeEx
 import imgui.ImGui.treePop
-import imgui.api.drag
 import imgui.api.g
 import imgui.classes.DrawList
-import imgui.classes.ListClipper
 import imgui.classes.listClipper
 import imgui.demo.showExampleApp.StyleEditor
 import imgui.dsl.child
@@ -72,14 +68,16 @@ import imgui.dsl.withID
 import imgui.font.Font
 import imgui.font.FontAtlas
 import imgui.font.FontGlyph
-import imgui.internal.*
+import imgui.internal.DrawCmd
 import imgui.internal.classes.*
+import imgui.internal.floor
 import imgui.internal.sections.*
+import imgui.internal.textStrToUtf8
+import imgui.internal.triangleArea
 import imgui.stb.te
 import kool.isNotEmpty
 import kool.rem
 import uno.kotlin.plusAssign
-import kotlin.math.sqrt
 
 typealias ErrorLogCallback = (userData: Any?, fmt: String, args: Array<Any>) -> Unit
 
@@ -323,7 +321,7 @@ internal interface debugTools {
             }
 
             var buf = "DrawCmd:%5d tris, Tex 0x%016d, ClipRect (%4.0f,%4.0f)-(%4.0f,%4.0f)".format(
-                cmd.elemCount / 3, cmd.textureId, cmd.clipRect.x, cmd.clipRect.y, cmd.clipRect.z, cmd.clipRect.w)
+                    cmd.elemCount / 3, cmd.textureId, cmd.clipRect.x, cmd.clipRect.y, cmd.clipRect.z, cmd.clipRect.w)
             val pcmdNodeOpen = treeNode(drawList.cmdBuffer.indexOf(cmd), buf)
             if (isItemHovered() && (cfg.showDrawCmdMesh || cfg.showDrawCmdBoundingBoxes) /*&& fgDrawList != null*/)
                 debugNodeDrawCmdShowMeshAndBoundingBox(fgDrawList, drawList, cmd, cfg.showDrawCmdMesh, cfg.showDrawCmdBoundingBoxes)
@@ -361,7 +359,7 @@ internal interface debugTools {
                         triangle[n] put v.pos
                         val isFirst = if (n == 0) "Vert:" else "     "
                         bufP += "$isFirst %04d: pos (%8.2f,%8.2f), uv (%.6f,%.6f), col %08X\n"
-                            .format(idxI, v.pos.x, v.pos.y, v.uv.x, v.uv.y, v.col)
+                                .format(idxI, v.pos.x, v.pos.y, v.uv.x, v.uv.y, v.col)
                         idxI++
                     }
                     buf = bufP.toString()
@@ -410,6 +408,7 @@ internal interface debugTools {
         }
         outDrawList.flags = backupFlags
     }
+
     fun debugNodeFontGlyph(font: Font, glyph: FontGlyph) {
         text("Codepoint: U+%04X", glyph.codepoint)
         separator()
@@ -497,7 +496,7 @@ internal interface debugTools {
     fun debugNodeTable(table: Table) {
         val isActive = table.lastFrameActive >= ImGui.frameCount - 2 // Note that fully clipped early out scrolling tables will appear as inactive here.
         if (!isActive) pushStyleColor(Col.Text, Col.TextDisabled.u32)
-        val open = treeNode(table, "Table 0x%08X (${table.columnsCount} columns, in '${table.outerWindow!!.name}')${if(isActive) "" else " *Inactive*"}", table.id)
+        val open = treeNode(table, "Table 0x%08X (${table.columnsCount} columns, in '${table.outerWindow!!.name}')${if (isActive) "" else " *Inactive*"}", table.id)
         if (!isActive) popStyleColor()
         if (isItemHovered())
             foregroundDrawList.addRect(table.outerRect.min, table.outerRect.max, COL32(255, 255, 0, 255))

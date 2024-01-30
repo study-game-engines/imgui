@@ -3,16 +3,15 @@ package imgui.api
 import imgui.ImGui.button
 import imgui.ImGui.clipboardText
 import imgui.ImGui.logBegin
-import imgui.ImGui.popTabStop
 import imgui.ImGui.popID
-import imgui.ImGui.pushTabStop
+import imgui.ImGui.popTabStop
 import imgui.ImGui.pushID
+import imgui.ImGui.pushTabStop
 import imgui.ImGui.sameLine
 import imgui.ImGui.setNextItemWidth
 import imgui.classes.Context
 import imgui.internal.sections.LogType
 import java.io.File
-import java.io.FileWriter
 
 /** Logging/Capture
  *  - All text output from the interface can be captured into tty/file/clipboard.

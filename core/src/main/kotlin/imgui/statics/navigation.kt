@@ -1,11 +1,6 @@
 package imgui.statics
 
-import glm_.has
-import glm_.hasnt
-import glm_.glm
-import glm_.i
-import glm_.max
-import glm_.min
+import glm_.*
 import glm_.vec2.Vec2
 import imgui.*
 import imgui.ImGui.begin
@@ -494,7 +489,7 @@ fun navBiasScoringRect(r: Rect, preferredPosRel: Vec2, moveDir: Dir, moveFlags: 
     }
 
     // Apply general bias on the other axis
-    if ((moveDir == Dir.Up || moveDir == Dir.Down)  && preferredPosRel.x != Float.MAX_VALUE) {
+    if ((moveDir == Dir.Up || moveDir == Dir.Down) && preferredPosRel.x != Float.MAX_VALUE) {
         r.min.x = preferredPosRel.x + relToAbsOffset.x; r.max.x = r.min.x
     } else if ((moveDir == Dir.Left || moveDir == Dir.Right) && preferredPosRel.y != Float.MAX_VALUE) {
         r.min.y = preferredPosRel.y + relToAbsOffset.y; r.max.y = r.min.y

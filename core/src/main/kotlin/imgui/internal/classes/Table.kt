@@ -1,10 +1,13 @@
 package imgui.internal.classes
 
-import imgui.*
+import imgui.ID
+import imgui.TableFlags
+import imgui.TableRowFlags
 import imgui.classes.TableColumnSortSpecs
 import imgui.classes.TableSortSpecs
 import imgui.internal.BitArray
 import imgui.internal.DrawListSplitter
+import imgui.none
 import unsigned.toUnsignedString
 
 

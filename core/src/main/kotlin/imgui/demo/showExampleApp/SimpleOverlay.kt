@@ -2,7 +2,8 @@ package imgui.demo.showExampleApp
 
 import glm_.has
 import glm_.vec2.Vec2
-import imgui.*
+import imgui.Cond
+import imgui.ImGui
 import imgui.ImGui.io
 import imgui.ImGui.isMousePosValid
 import imgui.ImGui.mainViewport
@@ -11,9 +12,11 @@ import imgui.ImGui.separator
 import imgui.ImGui.setNextWindowBgAlpha
 import imgui.ImGui.setNextWindowPos
 import imgui.ImGui.text
+import imgui.div
 import imgui.dsl.menuItem
 import imgui.dsl.popupContextWindow
 import imgui.dsl.window
+import imgui.or
 import kotlin.reflect.KMutableProperty0
 import imgui.WindowFlag as Wf
 
@@ -39,14 +42,14 @@ object SimpleOverlay {
             val workPos = viewport.workPos // Use work area to avoid menu-bar/task-bar, if any!
             val workSize = viewport.workSize
             val windowPos = Vec2(workPos.x + if (location has 1) workSize.x - PAD else PAD,
-                                 workPos.y + if (location has 2) workSize.y - PAD else PAD)
+                    workPos.y + if (location has 2) workSize.y - PAD else PAD)
             val windowPosPivot = Vec2(if (location has 1) 1f else 0f,
-                                      if (location has 2) 1f else 0f)
+                    if (location has 2) 1f else 0f)
             setNextWindowPos(windowPos, Cond.Always, windowPosPivot)
             windowFlags = windowFlags or Wf.NoMove
         } else if (location == -2) {
             // Center window
-            setNextWindowPos(ImGui.mainViewport.center, Cond.Always, Vec2( 0.5f))
+            setNextWindowPos(ImGui.mainViewport.center, Cond.Always, Vec2(0.5f))
             windowFlags /= Wf.NoMove
         }
         setNextWindowBgAlpha(0.35f)  // Transparent background

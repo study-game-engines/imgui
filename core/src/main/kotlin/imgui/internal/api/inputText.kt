@@ -80,7 +80,7 @@ internal interface inputText {
     // [JVM] since this is a very particular case, that's why we don't overload
     fun inputTextEx(label: String, hint: String?, buf: ByteArray, sizeArg: Vec2, flags: InputTextFlags,
                     callback: InputTextCallback? = null, callbackUserData: Any? = null): Boolean =
-        inputTextEx(label, hint, buf, buf.size, sizeArg, flags, callback, callbackUserData)
+            inputTextEx(label, hint, buf, buf.size, sizeArg, flags, callback, callbackUserData)
 
     /** InputTextEx
      *  - bufSize account for the zero-terminator, so a buf_size of 6 can hold "Hello" but not "Hello!".
@@ -531,7 +531,7 @@ internal interface inputText {
                     io.setClipboardTextFn?.let {
                         val ib = if (state.hasSelection) min(state.stb.selectStart, state.stb.selectEnd) else 0
                         val ie =
-                            if (state.hasSelection) max(state.stb.selectStart, state.stb.selectEnd) else state.curLenW
+                                if (state.hasSelection) max(state.stb.selectStart, state.stb.selectEnd) else state.curLenW
                         clipboardText = String(state.textW, ib, ie - ib)
                     }
                     if (isCut) {
@@ -932,7 +932,7 @@ internal interface inputText {
                 val cursorIsVisible = !io.configInputTextCursorBlink || state.cursorAnim <= 0f || glm.mod(state.cursorAnim, 1.2f) <= 0.8f
                 val cursorScreenPos = floor(drawPos + cursorOffset - drawScroll)
                 val cursorScreenRect = Rect(cursorScreenPos.x, cursorScreenPos.y - g.fontSize + 0.5f,
-                                            cursorScreenPos.x + 1f, cursorScreenPos.y - 1.5f)
+                        cursorScreenPos.x + 1f, cursorScreenPos.y - 1.5f)
                 if (cursorIsVisible && cursorScreenRect overlaps clipRect)
                     drawWindow.drawList.addLine(cursorScreenRect.min, cursorScreenRect.bl, Col.Text.u32)
 
@@ -958,7 +958,7 @@ internal interface inputText {
             if (isMultiline || bufDisplayEnd < bufDisplayMaxLength) {
                 val col = getColorU32(if (isDisplayingHint) Col.TextDisabled else Col.Text)
                 drawWindow.drawList.addText(g.font, g.fontSize, drawPos, col, bufDisplay, 0, bufDisplayEnd,
-                                            0f, clipRect.takeUnless { isMultiline })
+                        0f, clipRect.takeUnless { isMultiline })
             }
         }
 

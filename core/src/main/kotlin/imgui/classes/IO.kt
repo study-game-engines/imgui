@@ -4,12 +4,10 @@ import glm_.*
 import glm_.vec2.Vec2
 import glm_.vec2.Vec2i
 import imgui.*
-import imgui.ImGui.data
 import imgui.ImGui.getData
 import imgui.ImGui.isAlias
 import imgui.ImGui.isGamepad
 import imgui.ImGui.isNamedOrMod
-import imgui.api.gImGui
 import imgui.font.Font
 import imgui.font.FontAtlas
 import imgui.internal.floorSigned
@@ -42,6 +40,7 @@ class KeyData {
     /** 0.0f..1.0f for gamepad values */
     var analogValue = 0f
 }
+
 class IO(sharedFontAtlas: FontAtlas? = null) {
 
     //------------------------------------------------------------------

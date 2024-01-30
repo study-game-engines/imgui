@@ -461,7 +461,7 @@ interface tables {
                     //                    ImSwap(table->Columns[table->DisplayOrderToIndex[order_n]].DisplayOrder, table->Columns[table->DisplayOrderToIndex[column_n]].DisplayOrder)
                     var order = this.columns[displayOrderToIndex[orderN]].displayOrder
                     this.columns[displayOrderToIndex[orderN]].displayOrder =
-                        this.columns[displayOrderToIndex[columnN]].displayOrder
+                            this.columns[displayOrderToIndex[columnN]].displayOrder
                     this.columns[displayOrderToIndex[columnN]].displayOrder = order
                     //                    ImSwap(table->DisplayOrderToIndex[order_n], table->DisplayOrderToIndex[column_n])
                     order = displayOrderToIndex[orderN]

@@ -18,7 +18,7 @@ class ListClipperRange {
     companion object {
         fun fromIndices(min: Int, max: Int) = ListClipperRange().also { it.min = min; it.max = max }
         fun fromPositions(y1: Float, y2: Float, offMin: Int, offMax: Int) =
-            ListClipperRange().also { it.min = y1.i; it.max = y2.i; it.posToIndexConvert = true; it.posToIndexOffsetMin = offMin; it.posToIndexOffsetMax = offMax }
+                ListClipperRange().also { it.min = y1.i; it.max = y2.i; it.posToIndexConvert = true; it.posToIndexOffsetMin = offMin; it.posToIndexOffsetMax = offMax }
     }
 }
 

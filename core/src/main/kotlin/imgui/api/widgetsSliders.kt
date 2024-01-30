@@ -15,7 +15,6 @@ import imgui.ImGui.setOwner
 import imgui.ImGui.slider
 import imgui.ImGui.sliderBehavior
 import imgui.ImGui.tempInputScalar
-import imgui.ImGui.vSlider
 import imgui.internal.api.widgetN
 import imgui.internal.classes.Rect
 import imgui.internal.sections.ActivateFlag
@@ -24,7 +23,6 @@ import imgui.internal.sections.ItemFlag
 import imgui.internal.sections.ItemStatusFlag
 import kool.getValue
 import kool.setValue
-import java.lang.Exception
 import kotlin.reflect.KMutableProperty0
 
 // Widgets: Regular Sliders

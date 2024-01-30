@@ -1,7 +1,7 @@
 package imgui.stb
 
-import glm_.has
 import glm_.c
+import glm_.has
 import glm_.i
 import glm_.wo
 import imgui.internal.classes.InputTextState
@@ -830,11 +830,11 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
     /** API key: process a keyboard input */
     infix fun InputTextState.key(key: Int) {
         when (key) {
-    //                #ifdef STB_TEXTEDIT_K_INSERT
-    //                    case STB_TEXTEDIT_K_INSERT:
-    //                    state->insert_mode = !state->insert_mode
-    //                    break
-    //                #endif
+            //                #ifdef STB_TEXTEDIT_K_INSERT
+            //                    case STB_TEXTEDIT_K_INSERT:
+            //                    state->insert_mode = !state->insert_mode
+            //                    break
+            //                #endif
             K.UNDO -> {
                 undo()
                 stb.hasPreferredX = false
@@ -869,7 +869,7 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
                 stb.cursor = stb.selectEnd
                 stb.hasPreferredX = false
             }
-    //            #ifdef STB_TEXTEDIT_MOVEWORDLEFT
+            //            #ifdef STB_TEXTEDIT_MOVEWORDLEFT
             K.WORDLEFT -> {
                 if (stb.hasSelection)
                     stb.moveToFirst()
@@ -887,8 +887,8 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
 
                 clamp()
             }
-    //            #endif
-    //                #ifdef STB_TEXTEDIT_MOVEWORDRIGHT
+            //            #endif
+            //                #ifdef STB_TEXTEDIT_MOVEWORDRIGHT
             K.WORDRIGHT -> {
                 if (stb.hasSelection)
                     moveToLast()
@@ -906,7 +906,7 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
 
                 clamp()
             }
-    //                #endif
+            //                #endif
             K.RIGHT or K.SHIFT -> {
                 stb.prepSelectionAtCursor()
                 // move selection right
@@ -923,7 +923,7 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
                 val row = Row()
                 val sel = key has K.SHIFT
                 val isPage = (key wo K.SHIFT) == K.PGDOWN
-                val rowCount = if(isPage) stb.rowCountPerPage else 1
+                val rowCount = if (isPage) stb.rowCountPerPage else 1
 
                 if (!isPage && stb.singleLine)
                 // on windows, up&down in single-line behave like left&right
@@ -940,7 +940,7 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
 
                     // now find character position down a row
                     for (j in 0 until rowCount) {
-                        val goalX = if(stb.hasPreferredX) stb.preferredX else find.x
+                        val goalX = if (stb.hasPreferredX) stb.preferredX else find.x
                         val start = find.firstChar + find.length
 
                         if (find.length == 0)
@@ -956,7 +956,7 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
                             var x = row.x0
                             for (i in 0 until row.numChars) {
                                 val dx =
-                                    getWidth(start, i) //                        #ifdef STB_TEXTEDIT_GETWIDTH_NEWLINE
+                                        getWidth(start, i) //                        #ifdef STB_TEXTEDIT_GETWIDTH_NEWLINE
                                 if (dx == GETWIDTH_NEWLINE) break //                        #endif
                                 x += dx
                                 if (x > goalX) break
@@ -984,7 +984,7 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
                 val row = Row()
                 val sel = key has K.SHIFT
                 val isPage = (key wo K.SHIFT) == K.PGUP
-                val rowCount = if(isPage) stb.rowCountPerPage else 1
+                val rowCount = if (isPage) stb.rowCountPerPage else 1
 
                 if (!isPage && stb.singleLine)
                 // on windows, up&down become left&right
@@ -1000,7 +1000,7 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
                     findCharpos(find, stb.cursor, stb.singleLine)
 
                     for (j in 0 until rowCount) {
-                        val goalX = if(stb.hasPreferredX) stb.preferredX else find.x
+                        val goalX = if (stb.hasPreferredX) stb.preferredX else find.x
 
                         // can only go up if there's a previous row
                         if (find.prevFirst == find.firstChar)
@@ -1012,10 +1012,10 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
                         var x = row.x0
                         for (i in 0 until row.numChars) {
                             val dx = getWidth(find.prevFirst, i)
-    //                        #ifdef STB_TEXTEDIT_GETWIDTH_NEWLINE
+                            //                        #ifdef STB_TEXTEDIT_GETWIDTH_NEWLINE
                             if (dx == GETWIDTH_NEWLINE)
                                 break
-    //                        #endif
+                            //                        #endif
                             x += dx
                             if (x > goalX)
                                 break
@@ -1031,7 +1031,7 @@ static int stb_textedit_move_to_word_next( STB_TEXTEDIT_STRING *str, int c )
 
                         // go to previous line
                         // (we need to scan previous line the hard way. maybe we could expose this as a new API function?)
-                        var prevScan = if(find.prevFirst > 0) find.prevFirst - 1 else 0
+                        var prevScan = if (find.prevFirst > 0) find.prevFirst - 1 else 0
                         while (prevScan > 0 && getChar(prevScan - 1) != NEWLINE)
                             --prevScan
                         find.firstChar = find.prevFirst

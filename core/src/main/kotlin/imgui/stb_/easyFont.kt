@@ -82,15 +82,11 @@ package imgui.stb_
 
    github:vassvik  --  bug report*/
 
-import glm_.has
-import glm_.b
-import glm_.bool
 import glm_.c
+import glm_.has
 import glm_.i
 import glm_.vec2.Vec2
 import kool.cap
-import kool.lim
-import kool.set
 import java.nio.ByteBuffer
 
 object easyFont {

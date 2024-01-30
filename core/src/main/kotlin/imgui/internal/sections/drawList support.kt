@@ -5,8 +5,8 @@ import glm_.vec2.Vec2
 import glm_.vec4.Vec4
 import imgui.clamp
 import imgui.classes.DrawList
-import imgui.none
 import imgui.font.Font
+import imgui.none
 import kotlin.math.acos
 import kotlin.math.ceil
 import kotlin.math.cos

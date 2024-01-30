@@ -28,8 +28,8 @@ object Fullscreen {
         // We demonstrate using the full viewport area or the work area (without menu-bars, task-bars etc.)
         // Based on your use case you may want one or the other.
         val viewport = mainViewport
-        setNextWindowPos(if(useWorkArea) viewport.workPos else viewport.pos)
-        setNextWindowSize(if(useWorkArea) viewport.workSize else viewport.size)
+        setNextWindowPos(if (useWorkArea) viewport.workPos else viewport.pos)
+        setNextWindowSize(if (useWorkArea) viewport.workSize else viewport.size)
 
         window("Example: Fullscreen window", pOpen, flags) {
 

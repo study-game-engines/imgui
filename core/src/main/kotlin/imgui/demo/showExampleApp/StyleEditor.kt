@@ -2,11 +2,7 @@
 
 package imgui.demo.showExampleApp
 
-import glm_.hasnt
-import glm_.c
-import glm_.f
-import glm_.i
-import glm_.max
+import glm_.*
 import glm_.vec2.Vec2
 import glm_.vec4.Vec4
 import imgui.*
@@ -64,7 +60,6 @@ import imgui.dsl.button
 import imgui.dsl.child
 import imgui.dsl.group
 import imgui.dsl.radioButton
-import imgui.dsl.smallButton
 import imgui.dsl.tooltip
 import imgui.dsl.treeNode
 import imgui.dsl.withID
@@ -415,7 +410,7 @@ object StyleEditor {
                     val drawList = windowDrawList
                     for (n in 0 until 256) {
                         val cellP1 = Vec2(basePos.x + (n % 16) * (cellSize + cellSpacing),
-                                          basePos.y + (n / 16) * (cellSize + cellSpacing))
+                                basePos.y + (n / 16) * (cellSize + cellSpacing))
                         val cellP2 = Vec2(cellP1.x + cellSize, cellP1.y + cellSize)
                         val glyph = font.findGlyphNoFallback((base + n).c)
                         drawList.addRect(cellP1, cellP2, COL32(255, 255, 255, if (glyph != null) 100 else 50)) // We use ImFont::RenderChar as a shortcut because we don't have UTF-8 conversion functions

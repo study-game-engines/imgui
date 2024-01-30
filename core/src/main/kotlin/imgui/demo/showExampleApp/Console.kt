@@ -93,12 +93,12 @@ object Console {
             popupContextItem { if (menuItem("Close Console")) open = false }
 
             textWrapped("This example implements a console with basic coloring, completion (TAB key) and history (Up/Down keys). A more elaborate "
-                        + "implementation may want to store entries along with extra data such as timestamp, emitter, etc.")
+                    + "implementation may want to store entries along with extra data such as timestamp, emitter, etc.")
             textWrapped("Enter 'HELP' for help.")
 
             if (smallButton("Add Debug Text")) {
                 addLog("%d some text",
-                       items.size); addLog("some more text"); addLog("display very important message here!"); }
+                        items.size); addLog("some more text"); addLog("display very important message here!"); }
             sameLine()
             if (smallButton("Add Debug Error")) addLog("[error] something went wrong")
             sameLine()
@@ -262,7 +262,7 @@ object Console {
                                 while ((i < candidates.size) and allCandidatesMatch) {
                                     if (i == 0) c = candidates[i][matchLen].toUpperCase()
                                     else if ((c == 0.toChar()) or (c != candidates[i][matchLen].toUpperCase())) allCandidatesMatch =
-                                        false
+                                            false
                                     ++i
                                 }
                                 if (!allCandidatesMatch) break

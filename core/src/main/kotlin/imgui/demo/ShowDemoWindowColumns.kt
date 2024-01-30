@@ -28,7 +28,6 @@ import imgui.SelectableFlag
 import imgui.WindowFlag
 import imgui.api.demoDebugInformations.Companion.helpMarker
 import imgui.api.drag
-import imgui.classes.ListClipper
 import imgui.classes.listClipper
 import imgui.dsl.child
 import imgui.dsl.collapsingHeader

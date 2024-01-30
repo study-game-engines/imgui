@@ -147,6 +147,7 @@ class TableColumn {
  *  Per-instance data that needs preserving across frames (seemingly most others do not need to be preserved aside from debug needs, does that needs they could be moved to ImGuiTableTempData ?) */
 class TableInstanceData {
     var tableInstanceID: ID = 0
+
     /** Outer height from last frame */
     var lastOuterHeight = 0f
 
@@ -225,9 +226,9 @@ class TableColumnSettings {
 
 /** This is designed to be stored in a single ImChunkStream (1 header followed by N ImGuiTableColumnSettings, etc.) */
 class TableSettings(
-    /** Set to 0 to invalidate/delete the setting */
-    var id: ID,
-    var columnsCount: TableColumnIdx = 0) {
+        /** Set to 0 to invalidate/delete the setting */
+        var id: ID,
+        var columnsCount: TableColumnIdx = 0) {
 
     /** Indicate data we want to save using the Resizable/Reorderable/Sortable/Hideable flags (could be using its own flags..) */
     var saveFlags: TableFlags = none

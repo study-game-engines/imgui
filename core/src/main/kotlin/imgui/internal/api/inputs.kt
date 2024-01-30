@@ -1,7 +1,7 @@
 package imgui.internal.api
 
-import glm_.has
 import glm_.f
+import glm_.has
 import glm_.i
 import glm_.vec2.Vec2
 import imgui.*

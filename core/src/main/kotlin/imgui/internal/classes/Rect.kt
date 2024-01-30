@@ -5,8 +5,6 @@ import glm_.vec2.Vec2
 import glm_.vec2.Vec2i
 import glm_.vec4.Vec4
 import imgui.internal.floor
-import kotlin.math.max
-import kotlin.math.min
 import kotlin.math.sqrt
 
 /** An axis-aligned rectangle (2 points)
@@ -41,6 +39,7 @@ class Rect {
         this.min = Vec2(min)
         this.max = Vec2(max)
     }
+
     constructor(min: Float, max: Float) {
         this.min put min
         this.max put max

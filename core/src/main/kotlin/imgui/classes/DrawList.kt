@@ -1,6 +1,5 @@
 package imgui.classes
 
-import glm_.hasnt
 import glm_.*
 import glm_.func.common.abs
 import glm_.func.common.max
@@ -22,7 +21,7 @@ import kool.*
 import org.lwjgl.system.MemoryUtil
 import uno.kotlin.plusAssign
 import java.nio.ByteBuffer
-import java.util.Stack
+import java.util.*
 import kotlin.math.ceil
 import kotlin.math.max
 import kotlin.math.sqrt

@@ -1,8 +1,6 @@
 package imgui.font
 
 import com.aayushatharva.brotli4j.Brotli4jLoader
-import com.aayushatharva.brotli4j.encoder.Encoder
-import glm_.asHexString
 import glm_.i
 import glm_.minus
 import java.io.File

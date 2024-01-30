@@ -51,7 +51,6 @@ import imgui.ImGui.imageButton
 import imgui.ImGui.indent
 import imgui.ImGui.invisibleButton
 import imgui.ImGui.menuItem
-import imgui.ImGui.popTabStop
 import imgui.ImGui.popButtonRepeat
 import imgui.ImGui.popClipRect
 import imgui.ImGui.popFont
@@ -59,8 +58,8 @@ import imgui.ImGui.popID
 import imgui.ImGui.popItemWidth
 import imgui.ImGui.popStyleColor
 import imgui.ImGui.popStyleVar
+import imgui.ImGui.popTabStop
 import imgui.ImGui.popTextWrapPos
-import imgui.ImGui.pushTabStop
 import imgui.ImGui.pushButtonRepeat
 import imgui.ImGui.pushClipRect
 import imgui.ImGui.pushFont
@@ -68,6 +67,7 @@ import imgui.ImGui.pushID
 import imgui.ImGui.pushItemWidth
 import imgui.ImGui.pushStyleColor
 import imgui.ImGui.pushStyleVar
+import imgui.ImGui.pushTabStop
 import imgui.ImGui.pushTextWrapPos
 import imgui.ImGui.radioButton
 import imgui.ImGui.selectable
@@ -80,7 +80,6 @@ import imgui.font.Font
 import imgui.internal.sections.OldColumnFlags
 import kotlin.reflect.KMutableProperty0
 
-/** twin brother of Jdsl */
 object dsl {
 
     // Tables

@@ -24,7 +24,6 @@ import imgui.ImGui.setItemDefaultFocus
 import imgui.ImGui.style
 import imgui.ImGui.textLineHeightWithSpacing
 import imgui.WindowFlag
-import imgui.classes.ListClipper
 import imgui.classes.listClipper
 import imgui.has
 import imgui.internal.classes.Rect
@@ -91,7 +90,7 @@ interface widgetsListBoxes {
     }
 
     fun listBox(label: String, currentItemPtr: IntArray, items: Array<String>, heightInItems: Int = -1): Boolean =
-        listBox(label, currentItemPtr mutablePropertyAt 0, items, heightInItems)
+            listBox(label, currentItemPtr mutablePropertyAt 0, items, heightInItems)
 
     /** This is merely a helper around BeginListBox(), EndListBox().
      *  Considering using those directly to submit custom data or store selection differently. */

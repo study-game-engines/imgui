@@ -1,7 +1,7 @@
 package imgui.internal.api
 
-import imgui.api.g
 import imgui.ImGui.tableGcCompactSettings
+import imgui.api.g
 import imgui.internal.classes.Window
 import imgui.reserve
 import kool.cap

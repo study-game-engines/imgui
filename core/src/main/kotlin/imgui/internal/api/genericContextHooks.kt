@@ -19,8 +19,8 @@ interface genericContextHooks {
     infix fun Context.removeContextHook(hookId: ID) {
         assert(hookId != 0)
         for (hook in hooks)
-        if (hook.hookId == hookId)
-            hook.type = ContextHookType.PendingRemoval_
+            if (hook.hookId == hookId)
+                hook.type = ContextHookType.PendingRemoval_
     }
 
     /** Call context hooks (used by e.g. test engine)

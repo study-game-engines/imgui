@@ -228,12 +228,12 @@ fun PackContext.packFontRangesRenderIntoRects(info: FontInfo, ranges: Array<Pack
                     val (advance, _) = info getGlyphHMetrics glyph
                     val (x0, y0, _, _) = info.getGlyphBitmapBox(glyph, scale * hOversample.f, scale * vOversample.f)
                     info.makeGlyphBitmapSubpixel(pixels!!, r.x + r.y * strideInBytes,
-                                                 r.w - hOversample.i + 1, r.h - vOversample.i + 1,
-                                                 strideInBytes,
-                                                 scale * hOversample.i,
-                                                 scale * vOversample.i,
-                                                 0f, 0f,
-                                                 glyph)
+                            r.w - hOversample.i + 1, r.h - vOversample.i + 1,
+                            strideInBytes,
+                            scale * hOversample.i,
+                            scale * vOversample.i,
+                            0f, 0f,
+                            glyph)
                     if (hOversample > 1u)
                         TrueType.hPrefilter(pixels!!, r.x + r.y * strideInBytes, r.w, r.h, strideInBytes, hOversample)
 
@@ -267,7 +267,6 @@ fun PackContext.packFontRangesRenderIntoRects(info: FontInfo, ranges: Array<Pack
 
     return returnValue
 }
-
 
 
 // this is an opaque structure that you shouldn't mess with which holds

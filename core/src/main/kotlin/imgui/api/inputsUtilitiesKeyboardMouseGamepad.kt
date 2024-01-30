@@ -7,9 +7,9 @@ import imgui.ImGui.isDown
 import imgui.ImGui.isPressed
 import imgui.ImGui.isReleased
 import imgui.Key
-import imgui.none
 import imgui.internal.classes.InputFlag
 import imgui.internal.sections.KeyOwner_Any
+import imgui.none
 
 
 // Inputs Utilities: Keyboard/Mouse/Gamepad

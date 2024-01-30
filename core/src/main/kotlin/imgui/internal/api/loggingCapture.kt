@@ -76,7 +76,7 @@ internal interface loggingCapture {
             if (lineStart != lineEnd || !isLastLine) {
                 val lineLength = lineEnd - lineStart
                 val indentation = if (g.logLineFirstItem) treeDepth * 4 else 1
-                val t = text.encodeToByteArray().sliceArray(lineStart ..< lineStart + lineLength)
+                val t = text.encodeToByteArray().sliceArray(lineStart..<lineStart + lineLength)
                 logText(" ".repeat(indentation) + t.decodeToString())
                 g.logLineFirstItem = false
                 if (text.getOrNul(lineEnd) == '\n') {

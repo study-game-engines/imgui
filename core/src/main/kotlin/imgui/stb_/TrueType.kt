@@ -2,13 +2,10 @@
 
 package imgui.stb_
 
+//import glm_.*
 import glm_.f
 import glm_.i
-//import glm_.*
-import glm_.vec2.operators.div
 import glm_.vec4.Vec4i
-import kool.set
-import java.nio.ByteBuffer
 import kotlin.math.abs
 
 // [DEAR IMGUI]
@@ -1497,12 +1494,12 @@ object TrueType {
         }
 
         assert(when {
-                   x0 == x.f -> x1 <= x + 1
-                   x0 == x + 1f -> x1 >= x
-                   x0 <= x -> x1 <= x
-                   x0 >= x + 1 -> x1 >= x + 1
-                   else -> x1 >= x && x1 <= x + 1
-               })
+            x0 == x.f -> x1 <= x + 1
+            x0 == x + 1f -> x1 >= x
+            x0 <= x -> x1 <= x
+            x0 >= x + 1 -> x1 >= x + 1
+            else -> x1 >= x && x1 <= x + 1
+        })
 
         if (x0 <= x && x1 <= x)
             scanline[x] += e.direction * (y1 - y0)

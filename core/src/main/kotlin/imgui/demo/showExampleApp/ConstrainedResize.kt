@@ -39,12 +39,12 @@ object ConstrainedResize {
     var type = 5 // Aspect Ratio
     var displayLines = 10
     val testDesc = listOf("Resize vertical only",
-                          "Resize horizontal only",
-                          "Width > 100, Height > 100",
-                          "Width 400-500",
-                          "Height 400-500",
-                          "Custom: Always Square",
-                          "Custom: Fixed Steps (100)")
+            "Resize horizontal only",
+            "Width > 100, Height > 100",
+            "Width 400-500",
+            "Height 400-500",
+            "Custom: Always Square",
+            "Custom: Fixed Steps (100)")
 
     object CustomConstraints {
         // Helper functions to demonstrate programmatic constraints
@@ -66,13 +66,13 @@ object ConstrainedResize {
     operator fun invoke(pOpen: KMutableProperty0<Boolean>?) {
 
         val testDesc = listOf("Between 100x100 and 500x500",
-                              "At least 100x100",
-                              "Resize vertical only",
-                              "Resize horizontal only",
-                              "Width Between 400 and 500",
-                              "Custom: Aspect Ratio 16:9",
-                              "Custom: Always Square",
-                              "Custom: Fixed Steps (100)")
+                "At least 100x100",
+                "Resize vertical only",
+                "Resize horizontal only",
+                "Width Between 400 and 500",
+                "Custom: Aspect Ratio 16:9",
+                "Custom: Always Square",
+                "Custom: Fixed Steps (100)")
         // Submit constraint
         val aspectRatio = 16f / 9f
         val fixedStep = 100f

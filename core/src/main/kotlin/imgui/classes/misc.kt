@@ -7,7 +7,6 @@ import imgui.ImGui.colorConvertHSVtoRGB
 import imgui.ImGui.frameCount
 import imgui.ImGui.inputText
 import imgui.ImGui.setNextItemWidth
-import imgui.stb.te
 
 
 class Color {

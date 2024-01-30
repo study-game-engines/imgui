@@ -90,24 +90,24 @@ infix fun FontInfo.findGlyphIndex(unicodeCodepoint: Int): Int {
             val nGroups = data.ulong(indexMap + 12)
             var low = 0
             var high = nGroups.i
-                    // Binary search the right group.
-                    while (low < high) {
-                        val mid = low +((high - low) shr 1) // rounds down, so low <= mid < high
-                        val startChar = data.ulong(indexMap + 16 + mid * 12)
-                        val endChar = data.ulong(indexMap + 16 + mid * 12 + 4)
-                        if (unicodeCodepoint.ui < startChar)
-                            high = mid
-                        else if (unicodeCodepoint.ui > endChar)
-                            low = mid + 1
-                        else {
-                            val startGlyph = data.ulong(indexMap + 16 + mid * 12 + 8)
-                            return startGlyph.i + when (format) {
-                                12 -> unicodeCodepoint - startChar.i
-                                // format == 13
-                                else -> 0
-                            }
-                        }
+            // Binary search the right group.
+            while (low < high) {
+                val mid = low + ((high - low) shr 1) // rounds down, so low <= mid < high
+                val startChar = data.ulong(indexMap + 16 + mid * 12)
+                val endChar = data.ulong(indexMap + 16 + mid * 12 + 4)
+                if (unicodeCodepoint.ui < startChar)
+                    high = mid
+                else if (unicodeCodepoint.ui > endChar)
+                    low = mid + 1
+                else {
+                    val startGlyph = data.ulong(indexMap + 16 + mid * 12 + 8)
+                    return startGlyph.i + when (format) {
+                        12 -> unicodeCodepoint - startChar.i
+                        // format == 13
+                        else -> 0
                     }
+                }
+            }
             0 // not found
         }
 

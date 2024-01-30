@@ -95,5 +95,6 @@ internal val UShort.i get() = toInt()
 internal val UShort.ui get() = toUInt()
 internal val ULong.i get() = toInt()
 internal val ULong.ui get() = toUInt()
+
 //internal infix fun UByte.shl(i: Int) = toInt().shl(i).toUInt()
 internal infix fun UShort.shr(i: Int) = toUInt().shr(i).toUShort()

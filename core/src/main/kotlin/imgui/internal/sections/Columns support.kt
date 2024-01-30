@@ -4,9 +4,9 @@ import com.livefront.sealedenum.GenSealedEnum
 import imgui.Flag
 import imgui.FlagBase
 import imgui.ID
-import imgui.none
 import imgui.internal.DrawListSplitter
 import imgui.internal.classes.Rect
+import imgui.none
 
 
 //-----------------------------------------------------------------------------
