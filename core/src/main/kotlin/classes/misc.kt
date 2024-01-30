@@ -8,7 +8,6 @@ import imgui.ImGui.frameCount
 import imgui.ImGui.inputText
 import imgui.ImGui.setNextItemWidth
 
-
 class Color {
 
     val value = Vec4()
@@ -48,6 +47,7 @@ class Color {
             return Color(r, g, b, a).value
         }
     }
+
 }
 
 /** Helper: Execute a block of code at maximum once a frame. Convenient if you want to quickly create a UI within deep-nested code that runs multiple times every frame.

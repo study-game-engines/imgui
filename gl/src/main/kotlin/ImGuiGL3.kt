@@ -1,4 +1,4 @@
-package imgui.impl.gl
+package imgui.gl
 
 import glm_.*
 import glm_.mat4x4.Mat4

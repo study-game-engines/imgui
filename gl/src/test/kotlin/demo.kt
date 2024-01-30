@@ -10,8 +10,8 @@ import imgui.api.slider
 import imgui.classes.Context
 import imgui.div
 import imgui.button
-import imgui.impl.gl.ImGuiGL3
-import imgui.impl.glfw.ImplGlfw
+import imgui.gl.ImGuiGL3
+import imgui.gl.ImplGlfw
 import org.lwjgl.opengl.GL
 import org.lwjgl.opengl.GL11.*
 import org.lwjgl.system.Platform

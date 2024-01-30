@@ -1,4 +1,4 @@
-package imgui.impl.gl
+package imgui.gl
 
 import imgui.internal.DrawData
 

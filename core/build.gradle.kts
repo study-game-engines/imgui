@@ -11,21 +11,17 @@ plugins {
     kotlin("jvm")
     id("org.lwjgl.plugin")
     id("elect86.magik")
-    `maven-publish`
     id("com.google.devtools.ksp")
 }
 
 dependencies {
     implementation(kotlin("reflect"))
-    testImplementation(kotlin("test"))
-
     api("kotlin.graphics:uno-core:0.7.21")
     lwjgl { implementation(jemalloc, stb) }
-
     implementation("com.github.livefront.sealed-enum:runtime:0.7.0")
     ksp("com.github.livefront.sealed-enum:ksp:0.7.0")
 
-    val brotliVersion = "1.11.0"
+    val brotliVersion: String = "1.11.0"
     val operatingSystem: OperatingSystem = DefaultNativePlatform.getCurrentOperatingSystem()
     implementation("com.aayushatharva.brotli4j:brotli4j:$brotliVersion")
     runtimeOnly("com.aayushatharva.brotli4j:native-${

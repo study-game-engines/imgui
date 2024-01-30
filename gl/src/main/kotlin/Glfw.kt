@@ -1,4 +1,4 @@
-package imgui.impl.glfw
+package imgui.gl
 
 import glm_.bool
 import glm_.c
