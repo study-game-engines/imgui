@@ -4,6 +4,6 @@ plugins {
 }
 
 dependencies {
-    api(projects.core)
-    api(projects.gl)
+    api(project(":core"))
+    api(project(":gl"))
 }

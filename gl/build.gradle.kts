@@ -10,7 +10,6 @@ dependencies {
 /*examples*/
 
 sourceSets.create("examples") {
-    java.srcDirs(File("D:\\workspace\\imgui\\gl\\src\\examples\\kotlin"))
     compileClasspath += sourceSets.main.get().runtimeClasspath + sourceSets.main.get().compileClasspath
     runtimeClasspath += sourceSets.main.get().runtimeClasspath + sourceSets.main.get().compileClasspath
 }

@@ -71,6 +71,7 @@ private fun main() {
     gAppWindow.makeCurrent()
     glfw.swapInterval = VSync.ON   // Enable vsync
 
+    // >> TODO COPY
     // Setup Dear ImGui context
     val ctx = Context()
     val io = ctx.io
@@ -84,6 +85,7 @@ private fun main() {
     // Setup Platform/Renderer backend
     implGlfw = ImplGlfw(gAppWindow, true)
     gl3 = ImGuiGL3()
+    // <<
 
     gAppWindow.loop {
 

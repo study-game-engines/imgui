@@ -66,6 +66,8 @@ private fun main() {
         // Enable v-sync
         GLFW.glfwSwapInterval(1)
 
+        // TODO PASTE
+
         // Make the window visible
         GLFW.glfwShowWindow(window)
     }
