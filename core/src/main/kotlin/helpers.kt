@@ -1,6 +1,5 @@
 package imgui
 
-//import com.sun.jdi.VirtualMachine
 import glm_.L
 import glm_.b
 import glm_.vec3.Vec3
@@ -18,10 +17,8 @@ import java.util.logging.Logger
 import java.util.logging.SimpleFormatter
 import kotlin.reflect.KMutableProperty0
 
-
 // We need boxed objects in order to deliver a constant hashcode
 internal var ptrId: Array<Int> = Array(512) { it }
-
 
 operator fun StringBuilder.plusAssign(string: String) {
     append(string)

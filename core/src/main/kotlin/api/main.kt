@@ -66,10 +66,10 @@ interface main {
         // Remove pending delete hooks before frame start.
         // This deferred removal avoid issues of removal while iterating the hook vector
         for (n in g.hooks.indices.reversed())
-            if (g.hooks[n].type == ContextHookType.PendingRemoval_)
+            if (g.hooks[n].type == ContextHookType.PendingRemoval)
                 g.hooks.removeAt(n)
 
-        g callHooks ContextHookType.NewFramePre
+        g.callHooks(ContextHookType.NewFramePre)
 
         // Check and assert for various common IO and Configuration mistakes
         errorCheckNewFrameSanityChecks()
@@ -296,7 +296,7 @@ interface main {
         begin("Debug##Default")
         assert(g.currentWindow!!.isFallbackWindow)
 
-        g callHooks ContextHookType.NewFramePost
+        g.callHooks(ContextHookType.NewFramePost)
     }
 
     /** Ends the Dear ImGui frame. automatically called by ::render().
@@ -310,7 +310,7 @@ interface main {
         if (g.frameCountEnded == g.frameCount) return
         assert(g.withinFrameScope) { "Forgot to call ImGui::newFrame()?" }
 
-        g callHooks ContextHookType.EndFramePre
+        g.callHooks(ContextHookType.EndFramePre)
 
         errorCheckEndFrameSanityChecks()
 
@@ -376,7 +376,7 @@ interface main {
         io.mouseWheel = 0f; io.mouseWheelH = 0f
         io.inputQueueCharacters.clear()
 
-        g callHooks ContextHookType.EndFramePost
+        g.callHooks(ContextHookType.EndFramePost)
     }
 
     /** ends the Dear ImGui frame, finalize the draw data. You can then get call GetDrawData().
@@ -394,7 +394,7 @@ interface main {
         g.frameCountRendered = g.frameCount
         io.metricsRenderWindows = 0
 
-        g callHooks ContextHookType.RenderPre
+        g.callHooks(ContextHookType.RenderPre)
 
         // Add background ImDrawList (for each active viewport)
         for (viewport in g.viewports) {
@@ -438,7 +438,7 @@ interface main {
             io.metricsRenderIndices += drawData.totalIdxCount
         }
 
-        g callHooks ContextHookType.RenderPost
+        g.callHooks(ContextHookType.RenderPost)
     }
 
     /** Pass this to your backend rendering function! Valid after Render() and until the next call to NewFrame() */

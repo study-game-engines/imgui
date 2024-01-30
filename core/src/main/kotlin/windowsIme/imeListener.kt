@@ -15,8 +15,6 @@ import org.lwjgl.system.windows.WindowProc
 import uno.glfw.GlfwWindow
 import uno.kotlin.HWND
 
-//import vkk.adr
-
 object imeListener : WindowProc() {
 
     var hwnd = HWND(NULL)

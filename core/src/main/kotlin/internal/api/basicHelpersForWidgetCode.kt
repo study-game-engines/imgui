@@ -23,20 +23,6 @@ import imgui.internal.sections.*
 import imgui.statics.navProcessItem
 import java.util.*
 
-//-----------------------------------------------------------------------------
-// [SECTION] LAYOUT
-//-----------------------------------------------------------------------------
-// - ItemSize()
-// - ItemAdd()
-// - SameLine()
-// - Indent()
-// - Unindent()
-// - BeginGroup()
-// - EndGroup()
-// Also see in imgui_widgets: tab bars, and in imgui_tables: tables, columns.
-//-----------------------------------------------------------------------------
-
-/** Basic Helpers for widget code */
 internal interface basicHelpersForWidgetCode {
 
     /** Advance cursor given item size for layout.

@@ -279,8 +279,6 @@ class Context(sharedFontAtlas: FontAtlas? = null) {
         prevCtx?.setCurrent() // Restore previous context if any, else keep new one.
     }
 
-    // Init
-
     fun initialize() {
         assert(!initialized && !g.settingsLoaded)
 
@@ -296,36 +294,23 @@ class Context(sharedFontAtlas: FontAtlas? = null) {
         }
         addSettingsHandler(iniHandler)
         tableSettingsAddSettingsHandler()
-
-        // Setup default localization table
-        localizeRegisterEntries(gLocalizationEntriesEnUS)
-
-        // Setup default platform clipboard/IME handlers.
-        g.io.getClipboardTextFn = getClipboardTextFn_DefaultImpl    // Platform dependent default implementations
+        localizeRegisterEntries(gLocalizationEntriesEnUS) // Setup default localization table
+        g.io.getClipboardTextFn = getClipboardTextFn_DefaultImpl // Platform dependent default implementations
         g.io.setClipboardTextFn = setClipboardTextFn_DefaultImpl
-        g.io.clipboardUserData = g                          // Default implementation use the ImGuiContext as user data (ideally those would be arguments to the function)
-        if (Platform.get() == Platform.WINDOWS)
+        g.io.clipboardUserData = g // Default implementation use the ImGuiContext as user data (ideally those would be arguments to the function)
+        if (Platform.get() == Platform.WINDOWS) {
             g.io.setPlatformImeDataFn = setPlatformImeDataFn_DefaultImpl
-
-        // Create default viewport
-        val viewport = ViewportP()
-        g.viewports += viewport
-        // [JVM] useless
-        // g.TempBuffer.resize(1024 * 3 + 1, 0);
-
-        //        #ifdef IMGUI_HAS_DOCK
-        //        #endif // #ifdef IMGUI_HAS_DOCK
-
+        }
+        g.viewports += ViewportP()         // Create default viewport
         initialized = true
     }
 
-    /** This function is merely here to free heap allocations.
-     *  ~Shutdown(ImGuiContext* context)    */
+    // free heap allocations
     fun shutdown() {
-
         // The fonts atlas can be used prior to calling NewFrame(), so we clear it even if g.Initialized is FALSE (which would happen if we never called NewFrame)
-        if (fontAtlasOwnedByContext)
+        if (fontAtlasOwnedByContext) {
             io.fonts.locked = false
+        }
         io.fonts.clear()
         drawListSharedData.tempBuffer.clear()
 
@@ -338,7 +323,7 @@ class Context(sharedFontAtlas: FontAtlas? = null) {
             io.iniFilename?.let(::saveIniSettingsToDisk)
 
         // Notify hooked test engine, if any
-        g callHooks ContextHookType.Shutdown
+        g.callHooks(ContextHookType.Shutdown)
 
         // Clear everything else
         windows.forEach { it.destroy() }
@@ -377,7 +362,6 @@ class Context(sharedFontAtlas: FontAtlas? = null) {
         tablesTempData.clear()
         drawChannelsTempMergeBuffer.clear() // TODO check if this needs proper deallocation
 
-//        clipboardHandlerData = ""
         menusIdSubmittedThisFrame.clear()
         inputTextState.textW = CharArray(0)
         inputTextState.initialTextA = ByteArray(0)
@@ -392,25 +376,19 @@ class Context(sharedFontAtlas: FontAtlas? = null) {
         initialized = false
     }
 
-    /** ~SetCurrentContext */
     fun setCurrent() {
         gImGui = this
     }
 
-    /** Destroy current context
-     *  ~DestroyContext */
     fun destroy() {
         val prevCtx = ImGui.currentContext
-        //        if (ctx/this == NULL) //-V1051
-        //            ctx = GImGui;
         setCurrent()
         shutdown()
         gImGuiNullable = if (prevCtx !== this) prevCtx else null
     }
 
     companion object {
-        // IMPORTANT: ###xxx suffixes must be same in ALL languages
-        val gLocalizationEntriesEnUS = listOf(
+        val gLocalizationEntriesEnUS: List<LocEntry> = listOf(
                 LocEntry(LocKey.VersionStr, "Dear ImGui $IMGUI_VERSION ($IMGUI_VERSION_NUM)"),
                 LocEntry(LocKey.TableSizeOne, "Size column to fit###SizeOne"),
                 LocEntry(LocKey.TableSizeAllFit, "Size all columns to fit###SizeAll"),
@@ -418,24 +396,28 @@ class Context(sharedFontAtlas: FontAtlas? = null) {
                 LocEntry(LocKey.TableResetOrder, "Reset order###ResetOrder"),
                 LocEntry(LocKey.WindowingMainMenuBar, "(Main menu bar)"),
                 LocEntry(LocKey.WindowingPopup, "(Popup)"),
-                LocEntry(LocKey.WindowingUntitled, "(Untitled)"))
+                LocEntry(LocKey.WindowingUntitled, "(Untitled)")
+        )
     }
 }
 
-
-//-----------------------------------------------------------------------------
-// [SECTION] Generic context hooks
-//-----------------------------------------------------------------------------
-
 typealias ContextHookCallback = (ctx: Context, hook: ContextHook) -> Unit
 
-enum class ContextHookType { NewFramePre, NewFramePost, EndFramePre, EndFramePost, RenderPre, RenderPost, Shutdown, PendingRemoval_ }
+enum class ContextHookType {
+    NewFramePre,
+    NewFramePost,
+    EndFramePre,
+    EndFramePost,
+    RenderPre,
+    RenderPost,
+    Shutdown,
+    PendingRemoval
+}
 
-/** Hook for extensions like ImGuiTestEngine */
 class ContextHook(
-        // A unique ID assigned by AddContextHook()
         var hookId: ID = 0,
         var type: ContextHookType = ContextHookType.NewFramePre,
         var owner: ID = 0,
         var callback: ContextHookCallback? = null,
-        var userData: Any? = null)
+        var userData: Any? = null
+)

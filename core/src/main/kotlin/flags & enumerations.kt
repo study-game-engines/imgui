@@ -6,8 +6,13 @@ import imgui.DragDropFlag.*
 import imgui.ImGui.getColorU32
 import imgui.internal.isPowerOfTwo
 import unsigned.*
-import kotlin.internal.NoInfer
 
+/**
+ * Specifies that the corresponding type should be ignored during type inference.
+ */
+@Target(AnnotationTarget.TYPE)
+@Retention(AnnotationRetention.BINARY)
+internal annotation class NoInfer
 
 //-----------------------------------------------------------------------------
 // [SECTION] Flags & Enumerations

@@ -16,7 +16,6 @@ import imgui.internal.hashData
 import imgui.internal.hashStr
 import imgui.internal.sections.*
 
-// Basic Accessors
 internal interface basicAccessors {
 
     /** ~GetItemStatusFlags */
@@ -78,14 +77,8 @@ internal interface basicAccessors {
             g.activeIdSource = if (g.navActivateId == id || g.navJustMovedToId == id) g.navInputSource else InputSource.Mouse
             assert(g.activeIdSource != InputSource.None)
         }
-
-        // Clear declaration of inputs claimed by the widget
-        // (Please note that this is WIP and not all keys/inputs are thoroughly declared by all widgets yet)
         g.activeIdUsingNavDirMask = 0x00
         g.activeIdUsingAllKeyboardKeys = false
-//        #ifndef IMGUI_DISABLE_OBSOLETE_KEYIO
-//                g.ActiveIdUsingNavInputMask = 0x00
-//        #endif
     }
 
     /** FIXME-NAV: The existence of SetNavID/SetNavIDWithRectRel/SetFocusID is incredibly messy and confusing and needs some explanation or refactoring. */
@@ -96,8 +89,6 @@ internal interface basicAccessors {
         if (g.navWindow !== window)
             setNavWindow(window)
 
-        // Assume that SetFocusID() is called in the context where its window->DC.NavLayerCurrent and g.CurrentFocusScopeId are valid.
-        // Note that window may be != g.CurrentWindow (e.g. SetFocusID call in InputTextEx for multi-line text)
         val navLayer = window.dc.navLayerCurrent
         g.navId = id
         g.navLayer = navLayer
@@ -158,8 +149,6 @@ internal interface basicAccessors {
         g.lastItemData.statusFlags /= ItemStatusFlag.Edited
     }
 
-    /** Push a given id value ignoring the ID stack as a seed.
-     *  Push given value as-is at the top of the ID stack (whereas PushID combines old and new hashes) */
     fun pushOverrideID(id: ID) {
         val window = g.currentWindow!!
         if (g.debugHookIdInfo == id)
@@ -167,9 +156,6 @@ internal interface basicAccessors {
         window.idStack += id
     }
 
-    /** Helper to avoid a common series of PushOverrideID -> GetID() -> PopID() call
-     *  (note that when using this pattern, TestEngine's "Stack Tool" will tend to not display the intermediate stack level.
-     *  for that to work we would need to do PushOverrideID() -> ItemAdd() -> PopID() which would alter widget code a little more) */
     fun getIDWithSeed(str: String, strEnd: Int = -1, seed: ID): ID {
         val id = hashStr(str, if (strEnd != -1) strEnd else 0, seed)
         if (g.debugHookIdInfo == id)
@@ -183,4 +169,5 @@ internal interface basicAccessors {
             debugHookIdInfo(id, DataType.Int, n)
         return id
     }
+
 }
