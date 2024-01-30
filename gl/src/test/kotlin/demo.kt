@@ -34,7 +34,6 @@ var clearColor = Vec4(0.45f, 0.55f, 0.6f, 1f)
 var f = 0f
 var counter = 0
 
-// Main code
 fun main() {
 
     glfw {

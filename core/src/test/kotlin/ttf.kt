@@ -6,7 +6,6 @@ import glm_.minus
 import java.io.File
 import java.math.BigInteger
 
-
 fun main() {
     val ini = File("core/src/main/resources/fonts/ProggyClean.ttf")
     val array = ini.readBytes().asUByteArray()
